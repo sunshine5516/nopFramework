@@ -1,0 +1,63 @@
+﻿@using NopFramework.Web.Models.Introduce
+@model List<TermModel>
+@{
+    /**/
+    ViewBag.Title = "Leadship";
+    Layout = "~/Views/Shared/_Root.cshtml";
+}
+
+@Html.Action("AboutUsMenu", "Introduce")
+<div class="container">
+    <div class="page childpage center-1 contact-page">
+        <div class="title">
+        </div>
+        <div class="row">
+            <div class="col-sm-6 col-sm-offset-3 text-center m-t-50">
+                <p>
+                    领军人物
+                </p>
+            </div>
+        </div>
+        <div class="row m-t-50">
+            @foreach (var term in Model)
+            {
+                <div class="container">
+                    <div class="col-xs-7 col-md-6">
+                        <div class="">
+                            <h3 class="topic-title">@term.Name</h3>
+                            <p class="text-center head-describe">
+                                @Html.Raw(term.FullDescription)
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-xs-5 col-md-6 text-right">
+                        <div class="">
+                            <div class="col-md-6">
+                                <div class="">
+                                    @if (term.TermPictureModels.Count > 0 && term.TermPictureModels[0].ImageUrl != null)
+                                    {
+                                        <img src="@term.TermPictureModels[0].ImageUrl"width="235" height="235"
+                                             alt="leadship.png" title="leadship.png">
+                                    }
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <p class="" style="padding: 45px 0 0;">
+                                    @term.ShortDescription
+                                </p>
+                                <div class=""><strong>@term.Name</strong></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+

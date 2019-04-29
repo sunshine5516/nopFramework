@@ -1,0 +1,199 @@
+﻿@using Plugin.Widgets.NivoSlider.Models
+@using NopFramework.Web.Framework;
+@model ConfigurationModel
+@{
+    Layout = "";
+}
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div class="panel-group">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                Picture 1
+            </div>
+            <div class="panel-body">
+                <div class="form-group">
+                    <div class="col-md-3">
+
+                        @Html.NopFrameowrkLabelFor(model => model.Picture1Id)
+                    </div>
+                    <div class="col-md-9">
+                        @Html.NopFrameowrkEditorFor(model => model.Picture1Id)
+                        @Html.ValidationMessageFor(model => model.Picture1Id)
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-3">
+                        @Html.NopFrameowrkLabelFor(model => model.Text1)
+                    </div>
+                    <div class="col-md-9">
+                        @Html.NopFrameowrkEditorFor(model => model.Text1)
+                        @Html.ValidationMessageFor(model => model.Text1)
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-3">
+                        @Html.NopFrameowrkLabelFor(model => model.Link1)
+                    </div>
+                    <div class="col-md-9">
+                        @Html.NopFrameowrkEditorFor(model => model.Link1)
+                        @Html.ValidationMessageFor(model => model.Link1)
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                Picture 2
+            </div>
+            <div class="panel-body">
+                <div class="form-group">
+                    <div class="col-md-3">
+
+                        @Html.NopFrameowrkLabelFor(model => model.Picture2Id)
+                    </div>
+                    <div class="col-md-9">
+                        @Html.NopFrameowrkEditorFor(model => model.Picture2Id)
+                        @Html.ValidationMessageFor(model => model.Picture2Id)
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-3">
+                        @Html.NopFrameowrkLabelFor(model => model.Text2)
+                    </div>
+                    <div class="col-md-9">
+                        @Html.NopFrameowrkEditorFor(model => model.Text2)
+                        @Html.ValidationMessageFor(model => model.Text2)
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-3">
+                        @Html.NopFrameowrkLabelFor(model => model.Link2)
+                    </div>
+                    <div class="col-md-9">
+                        @Html.NopFrameowrkEditorFor(model => model.Link2)
+                        @Html.ValidationMessageFor(model => model.Link2)
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                Picture 3
+            </div>
+            <div class="panel-body">
+                <div class="form-group">
+                    <div class="col-md-3">
+
+                        @Html.NopFrameowrkLabelFor(model => model.Picture3Id)
+                    </div>
+                    <div class="col-md-9">
+                        @Html.NopFrameowrkEditorFor(model => model.Picture3Id)
+                        @Html.ValidationMessageFor(model => model.Picture3Id)
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-3">
+                        @Html.NopFrameowrkLabelFor(model => model.Text3)
+                    </div>
+                    <div class="col-md-9">
+                        @Html.NopFrameowrkEditorFor(model => model.Text3)
+                        @Html.ValidationMessageFor(model => model.Text3)
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-3">
+                        @Html.NopFrameowrkLabelFor(model => model.Link3)
+                    </div>
+                    <div class="col-md-9">
+                        @Html.NopFrameowrkEditorFor(model => model.Link3)
+                        @Html.ValidationMessageFor(model => model.Link3)
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                Picture 4
+            </div>
+            <div class="panel-body">
+                <div class="form-group">
+                    <div class="col-md-3">
+
+                        @Html.NopFrameowrkLabelFor(model => model.Picture4Id)
+                    </div>
+                    <div class="col-md-9">
+                        @Html.NopFrameowrkEditorFor(model => model.Picture4Id)
+                        @Html.ValidationMessageFor(model => model.Picture4Id)
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-3">
+                        @Html.NopFrameowrkLabelFor(model => model.Text4)
+                    </div>
+                    <div class="col-md-9">
+                        @Html.NopFrameowrkEditorFor(model => model.Text4)
+                        @Html.ValidationMessageFor(model => model.Text4)
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-3">
+                        @Html.NopFrameowrkLabelFor(model => model.Link4)
+                    </div>
+                    <div class="col-md-9">
+                        @Html.NopFrameowrkEditorFor(model => model.Link4)
+                        @Html.ValidationMessageFor(model => model.Link4)
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                Picture 5
+            </div>
+            <div class="panel-body">
+                <div class="form-group">
+                    <div class="col-md-3">
+
+                        @Html.NopFrameowrkLabelFor(model => model.Picture5Id)
+                    </div>
+                    <div class="col-md-9">
+                        @Html.NopFrameowrkEditorFor(model => model.Picture5Id)
+                        @Html.ValidationMessageFor(model => model.Picture5Id)
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-3">
+                        @Html.NopFrameowrkLabelFor(model => model.Text5)
+                    </div>
+                    <div class="col-md-9">
+                        @Html.NopFrameowrkEditorFor(model => model.Text5)
+                        @Html.ValidationMessageFor(model => model.Text5)
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-3">
+                        @Html.NopFrameowrkLabelFor(model => model.Link5)
+                    </div>
+                    <div class="col-md-9">
+                        @Html.NopFrameowrkEditorFor(model => model.Link5)
+                        @Html.ValidationMessageFor(model => model.Link5)
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <div class="form-group">
+                    <div class="col-md-3">
+                        &nbsp;
+                    </div>
+                    <div class="col-md-9">
+                        <input type="submit" name="save" class="btn bg-blue" value="保存"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}

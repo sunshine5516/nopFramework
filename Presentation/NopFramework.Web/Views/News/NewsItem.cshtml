@@ -1,0 +1,37 @@
+﻿@using NopFramework.Web.Models.News
+@model NewsItemModel
+@{
+    ViewBag.Title = "HomePageNews";
+    Layout = "~/Views/Shared/_Root.cshtml";
+}
+<div class="secondary_banner" style="margin-top:69px;">
+    @*<div class="secondary_banner" style="">*@
+    <div class="">
+        <img class="image" src="~/Content/Images/custom/contactus_bannser.png" />
+    </div>
+</div>
+<div class="container">
+    <div class="news-list-homepage center-1">
+
+        <div class="title">
+            <strong>新闻</strong>
+        </div>
+        @Html.Action("NewsMenu", "Common")
+        <div class="news-list-page col-md-9">
+            <div class="news-title">
+                <h1>@Model.Title</h1>
+            </div>
+            <div class="page-body">
+                <div class="news-date">
+                    @Model.CreatedOn.ToString()
+                </div>
+                <div class="news-body">
+                    @Html.Raw(Model.Contents)
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+

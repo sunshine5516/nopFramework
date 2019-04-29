@@ -1,0 +1,33 @@
+﻿@{
+    Layout = "";
+}
+@using Plugin.ExternalAuth.WeiXin.Models;
+@using NopFramework.Web.Framework;
+@model RegisterModel
+<body class="hold-transition register-page">
+    <div class="register-box">
+        <div class="register-box-body">
+            <p class="login-box-msg">微信注册会员</p>
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+            <div class="form-fields">
+                <div class="col-md-3">
+                    @Html.NopFrameowrkLabelFor(model => model.Email)
+                </div>
+                <div class="col-md-9">
+                    @Html.NopFrameowrkEditorFor(model => model.Email)
+                    @Html.ValidationMessageFor(model => model.Email)
+                </div>
+            </div>
+                <div class="row">
+                    <div class="col-xs-4">
+                        <button type="submit" class="btn btn-primary btn-block btn-flat">注册</button>
+                    </div>
+                    <!-- /.col -->
+                </div>
+            }
+        </div>
+        <!-- /.form-box -->
+    </div>
+</body>

@@ -1,0 +1,65 @@
+.topinsulate {
+    background: #34495e;
+    color: #fff;
+    padding: 30px 0;
+    margin-bottom: 40px;
+}
+
+.hiring,
+.services {
+    margin-bottom: 30px;
+    display: inline-block;
+    width: 100%;
+}
+
+.price-container-service {
+    margin-top: 30px;
+    padding-bottom: 30px;
+}
+
+.service-price-one {
+    padding-bottom: 10px
+}
+
+.hiring {
+    margin-top: 20px;
+    border-top: 1px solid #eee;
+    padding-top: 30px;
+}
+
+    .hiring h2 {
+        text-align: center;
+        padding-bottom: 10px;
+        margin-bottom: 50px;
+        text-transform: uppercase;
+    }
+
+
+.icon-wrap {
+    font-size: 2em;
+    height: 60px;
+    width: 60px;
+    float: left;
+    line-height: 60px;
+    text-align: center;
+    color: #fff;
+    margin-right: 30px;
+}
+
+.ico-bg {
+    background: #48cfad
+}
+
+.round-five {
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+}
+
+.round-fifty {
+    border-radius: 50px;
+    -moz-border-radius: 50px;
+    -webkit-border-radius: 50px;
+    margin-left: 40%;
+    margin-top: -25px;
+}

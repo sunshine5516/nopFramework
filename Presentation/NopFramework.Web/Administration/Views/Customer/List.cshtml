@@ -1,0 +1,388 @@
+﻿@using NopFramework.Admin.Models.Customers
+@using NopFramework.Web.Framework.UI
+@using NopFramework.Core.Infrastructure
+@using NopFramework.Web.Framework
+@using System.Globalization;
+@model CustomerListModel
+@{
+    var defaultGridPageSize = EngineContext.Current.Resolve<NopFramework.Core.Domains.Common.AdminAreaSettings>().DefaultGridPageSize;
+    var gridPageSizes = EngineContext.Current.Resolve<NopFramework.Core.Domains.Common.AdminAreaSettings>().GridPageSizes;
+    ViewBag.Title = "用户管理";
+    //active menu item (system name)
+    Html.SetActiveMenuItemSystemName("Customers list");
+}
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div class="content-header clearfix">
+        <h1 class="pull-left">
+            客户管理
+        </h1>
+        <div class="pull-right">
+            <a href="@Url.Action("Create")" class="btn bg-blue">
+                <i class="fa fa-plus-square"></i>
+                添加
+            </a>
+            <button type="button" id="delete-selected" class="btn bg-red">
+                <i class="fa fa-trash-o"></i>
+                删除所选
+            </button>
+            <div class="btn-group">
+                <button type="button" class="btn btn-success">
+                    <i class="fa fa-download"></i>
+                    导出
+                </button>
+                <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                    <span class="caret"></span>
+                    <span class="sr-only">&nbsp;</span>
+                </button>
+                <ul class="dropdown-menu" role="menu">
+                    <li>
+                        <button type="submit" name="exportxml-all">
+                            <i class="fa fa-file-code-o"></i>
+                            导出到XML(全部)
+                        </button>
+                    </li>
+                    <li>
+                        <button type="button" id="exportxml-selected">
+                            <i class="fa fa-file-code-o"></i>
+                            导出到XML(所选)
+                        </button>
+                    </li>
+                    <li class="divider"></li>
+                    <li>
+                        <button type="submit" name="exportexcel-all">
+                            <i class="fa fa-file-excel-o"></i>
+                            导出到Excel(全部)
+                        </button>
+                    </li>
+                    <li>
+                        <button type="button" id="exportexcel-selected">
+                            <i class="fa fa-file-excel-o"></i>
+                            导出到Excel(所选)
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="content">
+        <div class="form-horizontal">
+            <div class="panel-group">
+                <div class="panel panel-default panel-search">
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-md-5">
+                                <div class="form-group">
+                                    <div class="col-md-4">
+                                        @Html.NopFrameowrkLabelFor(model => model.SearchFirstName)
+                                    </div>
+                                    <div class="col-md-8">
+                                        @Html.NopFrameowrkEditorFor(model => model.SearchFirstName)
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-md-4">
+                                        @Html.NopFrameowrkLabelFor(model => model.SearchLastName)
+                                    </div>
+                                    <div class="col-md-8">
+                                        @Html.NopFrameowrkEditorFor(model => model.SearchLastName)
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-md-4">
+                                        @Html.NopFrameowrkLabelFor(model => model.SearchDayOfBirth)
+                                    </div>
+                                    <div class="col-md-8">
+                                        @{
+                                            var monthOfBirthValues = new List<SelectListItem>();
+                                            monthOfBirthValues.Add(new SelectListItem { Text = "月", Value = "0" });
+                                            for (int i = 1; i <= 12; i++)
+                                            {
+                                                monthOfBirthValues.Add(new SelectListItem
+                                                {
+                                                    Text = i.ToString(CultureInfo.InvariantCulture),
+                                                    Value = i.ToString(CultureInfo.InvariantCulture)
+                                                });
+                                            }
+                                            var dayOfBirthValues = new List<SelectListItem>();
+                                            dayOfBirthValues.Add(new SelectListItem { Text = "日", Value = "0" });
+                                            for (int i = 1; i <= 31; i++)
+                                            {
+                                                dayOfBirthValues.Add(new SelectListItem
+                                                {
+                                                    Text = i.ToString(CultureInfo.InvariantCulture),
+                                                    Value = i.ToString(CultureInfo.InvariantCulture)
+                                                });
+                                            }
+                                        }
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                @Html.NopFramoworkDropDownListFor(model => model.SearchMonthOfBirth, monthOfBirthValues)
+                                            </div>
+                                            <div class="col-md-8">
+                                                @Html.NopFramoworkDropDownListFor(model => model.SearchDayOfBirth, dayOfBirthValues)
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-7">
+                                <div class="form-group">
+                                    <div class="col-md-4">
+                                        @Html.NopFrameowrkLabelFor(model => model.SearchEmail)
+                                    </div>
+                                    <div class="col-md-8">
+                                        @Html.NopFrameowrkEditorFor(model => model.SearchEmail)
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-md-4">
+                                        @Html.NopFrameowrkLabelFor(model => model.SearchUserName)
+                                    </div>
+                                    <div class="col-md-8">
+                                        @Html.NopFrameowrkEditorFor(model => model.SearchUserName)
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-md-4">
+                                        @Html.NopFrameowrkLabelFor(model => model.SearchCustomerRoleIds)
+                                    </div>
+                                    <div class="col-md-8">
+                                        @Html.EditorFor(model => model.SearchCustomerRoleIds,
+                                       new { SelectList = Model.AvailableCustomerRoles })
+                                        <script>
+                                            $(document).ready(function() {
+                                                var rolesIdsInput = $('#@Html.FieldIdFor(model => model.SearchCustomerRoleIds)').data("kendoMultiSelect");
+                                                rolesIdsInput.setOptions({
+                                                    autoClose: false
+                                                });
+
+                                                @if (Model.AvailableCustomerRoles.Count == 0)
+                                                {
+                                                    <text>
+                                                        rolesIdsInput.setOptions({
+                                                            enable: false,
+                                                            placeholder: '暂无用户'
+                                                        });
+                                                        rolesIdsInput._placeholder();
+                                                        rolesIdsInput._enable();
+                                                    </text>
+                                                }
+                                            });
+                                        </script>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group">
+                                <div class="col-md-8 col-md-offset-4">
+                                    <button type="button" id="search-customers" class="btn btn-primary btn-search">
+                                        <i class="fa fa-search"></i>
+                                        搜索
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <div id="customers-grid"></div>
+                        <script>
+                            $(document).ready(function() {
+                                $("#customers-grid").kendoGrid({
+                                    dataSource: {
+                                        type: "json",
+                                        transport: {
+                                            read: {
+                                                url: "@Html.Raw(Url.Action("CustomerList", "Customer"))",
+                                                type: "POST",
+                                                dataType: "json",
+                                                data: additionalData
+                                            }
+                                        },
+                                        schema: {
+                                            data: "Data",
+                                            total: "Total",
+                                            errors: "Errors"
+                                        },
+                                        error: function(e) {
+                                            display_kendoui_grid_error(e);
+                                            // Cancel the changes
+                                            this.cancelChanges();
+                                        },
+                                        pageSize: @(defaultGridPageSize),
+                                        serverPaging: true,
+                                        serverFiltering: true,
+                                        serverSorting: true
+                                    },
+                                    pageable: {
+                                        refresh: true,
+                                        pageSizes: [@(gridPageSizes)],
+                                        messages: {
+                                            display: "显示{0}-{1}条，共{2}条",
+                                            empty: "没有数据",
+                                            page: "页",
+                                            of: "/ {0}",
+                                            itemsPerPage: "条/页",
+                                            first: "第一页",
+                                            previous: "前一页",
+                                            next: "下一页",
+                                            last: "最后一页",
+                                            refresh: "刷新"
+                                        }
+                                    },
+                                    scrollable: false,
+                                    //dataBound: onDataBound,
+                                    columns: [
+                                        {
+                                            field: "Id",
+                                            headerTemplate: "<input id='mastercheckbox' type='checkbox'/>",
+                                            headerAttributes: { style: "text-align:center" },
+                                            attributes: { style: "text-align:center" },
+                                            template: "<input type='checkbox' value='#=Id#' class='checkboxGroups'/>",
+                                            width: 50
+                                        }, {
+                                            field: "Email",
+                                            title: "电子邮箱",
+                                            width: 50
+                                        },{
+                                            field: "UserName",
+                                            title: "用户名",
+                                            width: 50
+                                        }, {
+                                            field: "FullName",
+                                            title: "全名",
+                                            width: 50
+                                        }, {
+                                            field: "CustomerRoleNames",
+                                            title: "客户角色",
+                                            width: 50
+                                        }, {
+                                            field: "Active",
+                                            title: "已启用",
+                                            width: 50,
+                                            headerAttributes: { style: "text-align:center" },
+                                            attributes: { style: "text-align:center" },
+                                            template: '# if(Active) {# <i class="fa fa-check true-icon"></i> #} else {# <i class="fa fa-close false-icon"></i> #} #'
+                                        }, {
+                                            field: "CreatedOn",
+                                            title: "创建日期",
+                                            width: 50,
+                                            type: "date",
+                                            format: "{0:G}"
+                                        }, {
+                                            field: "LastActivityDate",
+                                            title: "最后活动日期",
+                                            width: 50,
+                                            type: "date",
+                                            format: "{0:G}"
+                                        }, {
+                                            field: "Id",
+                                            title: "编辑",
+                                            width: 50,
+                                            //,
+                                            //template: '<a href="Edit/#=Id#>编辑</a>'
+                                            template: '<a href="Edit/#=Id#">编辑</a>'
+                                        }
+
+                                    ]
+                                });
+                            });
+                        </script>
+                        <script>
+                            var selectedIds = [];
+                            $(document).ready(function () {
+                                $('#search-customers').click(function () {
+                                    var grid = $('#customers-grid').data('kendoGrid');
+                                    grid.dataSource.page(1);
+                                    $('.checkboxGroups').attr('checked', false).change();
+                                    selectedIds = [];
+                                    return false;
+                                });
+                                $("#delete-selected").click(function(e){
+                                    e.preventDefault();
+                                    var postData = {
+                                        selectedIds: selectedIds
+                                    };
+                                    addAntiForgeryToken(postData);
+                                    $.ajax({
+                                        cache: false,
+                                        type: "POST",
+                                        url: "@(Url.Action("DeleteSelected", "Customer"))",
+                                        data: postData,
+                                        complete: function(data) {
+                                            //reload grid
+                                            var grid = $('#customers-grid').data('kendoGrid');
+                                            grid.dataSource.read();
+                                        },
+                                        error: function(xhr, ajaxOptions, thrownError) {
+                                            alert(thrownError);
+                                        },
+                                        traditional: true
+                                    });
+                                    return false;
+                                });
+
+                                $('#mastercheckbox').click(function () {
+                                    var $check = $(this);
+                                   // alert($check.val());
+                                    $('.checkboxGroups').attr('checked', $(this).is(':checked')).change();
+                                    //alert(selectedIds.length);
+                                });
+
+                                //checkboxes.
+                                $('#customers-grid').on('change', 'input[type=checkbox][id!=mastercheckbox]', function (e) {
+                                    var $check = $(this);
+                                    if ($check.is(":checked") == true) {
+                                        var checked = jQuery.inArray($check.val(), selectedIds);
+                                        if (checked == -1) {
+                                            //add id to selectedIds.
+                                            selectedIds.push($check.val());
+                                        }
+                                    }
+                                    else {
+                                        var checked = jQuery.inArray($check.val(), selectedIds);
+                                        if (checked > -1) {
+                                            //remove id from selectedIds.
+                                            selectedIds = $.grep(selectedIds, function (item, index) {
+                                                return item != $check.val();
+                                            });
+                                        }
+                                    }
+                                    updateMasterCheckbox();
+                                });
+                            });
+
+                            function updateMasterCheckbox() {
+                                var numChkBoxes = $('#customers-grid input[type=checkbox][id!=mastercheckbox]').length;
+                                var numChkBoxesChecked = $('#customers-grid input[type=checkbox][id!=mastercheckbox]:checked').length;
+                                $('#mastercheckbox').attr('checked', numChkBoxes == numChkBoxesChecked && numChkBoxes > 0);
+                            }
+
+                            function additionalData() {
+                                var data = {
+                                    SearchCustomerRoleIds: $('#@Html.FieldIdFor(model => model.SearchCustomerRoleIds)').val(),
+                                    SearchEmail: $('#@Html.FieldIdFor(model => model.SearchEmail)').val(),
+                                    SearchUsername: $('#@Html.FieldIdFor(model => model.SearchUserName)').val(),
+                                    SearchFirstName: $('#@Html.FieldIdFor(model => model.SearchFirstName)').val(),
+                                    SearchLastName: $('#@Html.FieldIdFor(model => model.SearchLastName)').val(),
+                                    SearchDayOfBirth: $('#@Html.FieldIdFor(model => model.SearchDayOfBirth)').val(),
+                                    SearchMonthOfBirth: $('#@Html.FieldIdFor(model => model.SearchMonthOfBirth)').val(),
+                                    SearchCompany: $('#@Html.FieldIdFor(model => model.SearchCompany)').val(),
+                                    SearchPhone: $('#@Html.FieldIdFor(model => model.SearchPhone)').val(),
+                                    SearchZipPostalCode: $('#@Html.FieldIdFor(model => model.SearchZipPostalCode)').val(),
+                                    SearchIpAddress: $('#@Html.FieldIdFor(model => model.SearchIpAddress)').val()
+                                };
+                                addAntiForgeryToken(data);
+                                return data;
+                            }
+                        </script>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}

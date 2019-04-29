@@ -1,0 +1,39 @@
+﻿@using NopFramework.Web.Models.Catalog
+@using NopFramework.Web.Framework.UI
+@model List<ProductDetailsModel>
+@{
+    ViewBag.Title = "ProductList";
+    Layout = "~/Views/Shared/_Root.cshtml"; 
+}
+
+@Html.Action("ProductMenu", "Product")
+<div class="container">
+    <div id="portfolio" class="row no-gutter section-top-25">
+        @foreach (var product in Model)
+        {
+            <div class="isotope-item awards col-sm-6 col-md-4 section-top-25">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <figure class="imghvr-slide-up img-responsive">
+                            <img src="@product.DefaultPictureModel.ImageUrl" style="width:278px;height:208px" alt="gallery3">
+                            <figcaption>
+                                <div class="text-center hoveicon_plus">
+                                    <a class="fa-2x text-white" href="@Url.RouteUrl("ProductItem", new { SeName = product.Name })">@product.Name</a>
+                                    
+                                </div>
+                            </figcaption>
+
+                        </figure>
+                        <h4>
+                            @product.Name
+                        </h4>
+
+                    </div>
+                </div>
+            </div>
+        }
+
+
+        </div>
+</div>
+

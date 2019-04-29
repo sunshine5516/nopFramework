@@ -1,0 +1,52 @@
+﻿@using NopFramework.Web.Extensions
+@using NopFramework.Web.Models.Support
+@model List<ResourceModel>
+@{
+    ViewBag.Title = "HomePageNews";
+    Layout = "~/Views/Shared/_Root.cshtml";
+
+}
+@{
+    ViewBag.Title = "InstructionsList";
+}
+@Html.Action("SupportMenu", "Support")
+
+<div class="container">
+
+    @foreach (var resource in Model)
+    {
+    <div class="row">
+        <div class="col-xs-2 col-md-2 text-right">
+           
+        </div>
+        <div class="col-xs-10 col-md-5">
+            <div class="describe htmledit">
+                <div id="top">
+                    <i class="fa fa-circle"> 文件名称:  </i>
+                    <a href="#" class="head-describe" title="@resource.Name">
+                        @resource.Name
+                    </a>
+                </div>
+
+            </div>
+        </div>
+        <div class="col-xs-2 col-md-4 text-right">
+            @Html.ActionLink("立即下载", "DownloadInstruction", "Support", new { resourceId = @resource.Id }, new { @class = ".btn-sm btn" })
+        </div>
+    </div>
+
+    }
+
+    @*<div class="pageJump">
+        <div class="fanye">
+            <div class="pageJump">
+                <div class="number"><span class="disabled">首页</span><span class="disabled">上一页</span><span class="current">1</span><span class="disabled">下一页</span><span class="disabled">末页</span></div>
+                <script language="javascript" type="text/JavaScript">
+                    var locaton2b915edbe8994627b84d827165cedcb2 = window.location.href; function scriptFunction2b915edbe8994627b84d827165cedcb2() { var hrefTemp = document.getElementById("hrefTempId2b915edbe8994627b84d827165cedcb2").value; var hrefPageNo = document.getElementById("pageNoId2b915edbe8994627b84d827165cedcb2"); var hrefPageNoValue = hrefPageNo.value; var pattern = /^\d+(\.\d+)?$/; if (pattern.test(hrefPageNoValue) && hrefPageNoValue > 0 && hrefPageNoValue <= 1) { window.location.href = hrefTemp.replace("2b915edbe8994627b84d827165cedcb2", hrefPageNoValue); } else { alert("页数输入不合法"); hrefPageNo.focus(); } } function jumpbutton_2b915edbe8994627b84d827165cedcb2() { var hrefPageNo = document.getElementById("pageNoId2b915edbe8994627b84d827165cedcb2"); var hrefPageNoValue = hrefPageNo.value; var pattern = /^\d+$/; if (pattern.test(hrefPageNoValue) && hrefPageNoValue > 0 && hrefPageNoValue <= 1) { jump_2b915edbe8994627b84d827165cedcb2(hrefPageNoValue, 15) } else { alert("页数输入不合法"); hrefPageNo.focus(); } } function jump_2b915edbe8994627b84d827165cedcb2(page_no, page_size) { var current_size = "pageSize=15"; var current_no = "pageNo=1"; var jumpLocation = locaton2b915edbe8994627b84d827165cedcb2; if (locaton2b915edbe8994627b84d827165cedcb2.indexOf("=") == -1) { if (jumpLocation.indexOf('.html') == -1) { if (jumpLocation.lastIndexOf('/') == window.location.href.length - 1) { jumpLocation = jumpLocation + 'index/.html'; } else { jumpLocation = jumpLocation + '/index/.html'; } } else { jumpLocation = jumpLocation.replace('.html', '/.html'); } } if (locaton2b915edbe8994627b84d827165cedcb2.indexOf(current_no) != -1) { jumpLocation = jumpLocation.replace(current_no, "pageNo=" + page_no); } else { jumpLocation = jumpLocation.replace(".html", "&pageNo=" + page_no + ".html"); } if (locaton2b915edbe8994627b84d827165cedcb2.indexOf(current_size) != -1) { jumpLocation = jumpLocation.replace(current_size, "pageSize=" + page_size); } else { jumpLocation = jumpLocation.replace(".html", "&pageSize=" + page_size + ".html"); } window.location.href = jumpLocation; return false; }
+                </script>
+            </div>
+        </div>
+    </div>*@
+
+</div>
+

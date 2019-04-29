@@ -1,0 +1,172 @@
+﻿@using NopFramework.Web.Framework.UI
+@using NopFramework.Core.Infrastructure
+@using NopFramework.Web.Framework
+@{
+    var defaultGridPageSize = EngineContext.Current.Resolve<NopFramework.Core.Domains.Common.AdminAreaSettings>().DefaultGridPageSize;
+    var gridPageSizes = EngineContext.Current.Resolve<NopFramework.Core.Domains.Common.AdminAreaSettings>().GridPageSizes;
+    //page title
+    ViewBag.Title = "日志类型";
+    //active menu item (system name)
+    Html.SetActiveMenuItemSystemName("Activity types");
+}
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div class="content-header clearfix">
+        <h1 class="pull-left">用户日志类型</h1>
+        @*@Html.Action("List", "cheduleTask")*@
+        @*@Html.ActionLink("Link", "List")*@
+        <div class="pull-right">
+            <button type="button" id="delete-selected" class="btn bg-red">
+                <i class="fa fa-trash-o"></i>
+                删除选择
+            </button>
+            <button type="submit" id="delete-all" name="delete-all" class="btn bg-red">
+                <i class="fa fa-trash-o"></i>
+                删除所有
+            </button>
+        </div>
+    </div>
+
+
+    <div class="content">
+        <div class="form-horizontal">
+            <div class="panel-group">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <div id="activityLogType-grid"></div>
+                        <script>
+                            $(document).ready(function () {
+                                $("#activityLogType-grid").kendoGrid({
+                                   dataSource:{
+                                    type:"json",
+                                    transport:{
+                                        read:{
+                                            url:"@Html.Raw(Url.Action("ListTypes", "ActivityLog"))",
+                                            type:"POST",
+                                            dataType:"json",
+                                            data: addAntiForgeryToken
+                                        } ,
+                                        create: {
+                                            url: "@Html.Raw(Url.Action("TypeAdd", "ActivityLog"))",
+                                            type: "POST",
+                                            dataType: "json",
+                                            data: addAntiForgeryToken
+                                        },
+                                        update: {
+                                            url: "@Html.Raw(Url.Action("TypeUpdate", "ActivityLog"))",
+                                            type: "POST",
+                                            dataType: "json",
+                                            data: addAntiForgeryToken
+                                        },destroy: {
+                                            url: "@Html.Raw(Url.Action("TypeDelete", "ActivityLog"))",
+                                            type: "POST",
+                                            dataType: "json",
+                                            data: addAntiForgeryToken
+                                        }
+                                        //,
+                                        // parameterMap: function (data, operation) {
+                                        //    if (operation != "read") {
+                                        //        return data;
+                                        //    } else {
+                                        //        //for some reasons only such "Filter" data be parsed
+                                        //        return JSON.stringify(data);
+                                        //    }
+                                        //}
+                                    },
+                                    schema:{
+                                        data:"Data",
+                                        total:"Total",
+                                        errors: "Errors",
+                                        model: {
+                                            id: "Id",
+                                            fields: {
+                                                Name: { editable: true, type: "string" },
+                                                Enable: { editable: true, type: "boolean" },
+                                                Id: { editable: false, type: "number" }
+                                            }
+                                        }
+                                    }, requestEnd: function(e) {
+                                        if (e.type == "create" || e.type == "update") {
+                                            this.read();
+                                        }
+                                    },
+                                    error:function(e){
+                                        display_kendoui_grid_error(e);
+                                        this.cancelChanges();
+                                    },
+                                    pageSize:@(defaultGridPageSize),
+                                    serverPaging:true,
+                                    serverFiltering:true,
+                                    serverSorting:true
+                                },
+                                  pageable: {
+                                    refresh: true,
+                                    pageSizes:  [@(gridPageSizes)],
+                                    buttonCount: 5,
+                                    messages: {
+                                        display: "显示{0}-{1}条，共{2}条",
+                                        empty: "没有数据",
+                                        page: "页",
+                                        of: "/ {0}",
+                                        itemsPerPage: "条/页",
+                                        first: "第一页",
+                                        previous: "前一页",
+                                        next: "下一页",
+                                        last: "最后一页",
+                                        refresh: "刷新"
+                                    }
+                                },
+                                  toolbar: [{ name: "create", text: "添加" }],
+                                  scrollable: true,
+                                     editable: {
+                                         confirmation: "确认删除",
+                                         mode: "inline"
+                                     },
+                                 columns: [
+                                     //{
+                                     //    field: "SystemName",
+                                     //    title: "系统名称",
+                                     //    width: 150
+                                     //},
+                                         {
+                                             field: "Name",
+                                             title: "名称",
+                                             width: 150
+                                         },
+                                         {
+                                             field: "Enable",
+                                             title: "已启用",
+                                             width: 100,
+                                             headerAttributes: { style: "text-align:center" },
+                                             attributes: { style: "text-align:center" },
+                                             template:'#if(Enable){#<i class="fa fa-check true-icon"></i>#}else{#<i class="fa fa-close false-icon"></i>#}#'
+                                         },
+                                         {
+                                             command: [
+                                                 {
+                                                     name: "edit",
+                                                     text: {
+                                                         edit: "编辑",
+                                                         update: "更新",
+                                                         cancel: "取消"
+                                                     }
+                                                 }, {
+                                                     name: "destroy",
+                                                     text: "删除"
+                                                 }
+                                             ],
+                                             width: 100
+                                         }
+                                     ]
+                                });
+                            });
+                        </script>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+}
+

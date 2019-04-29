@@ -1,0 +1,92 @@
+﻿@using NopFramework.Core.Infrastructure
+@using NopFramework.Core.Domains.Localization
+@using NopFramework.Web.Framework.UI
+@using NopFramework.Web.Framework
+@{
+    //Layout = null;
+    <style>
+        .add {
+            display: none !important;
+        }
+
+        .col-lg-4:first-child {
+            display: none !important;
+        }
+
+        .fdad {
+            display: none !important;
+        }
+    </style>
+}
+<div class=" navbar navbar-default navbar-fixed-top">
+    <div class="">
+        <div class="container">
+            @Html.Action("LanguageSelector", "Common")
+            <div class="row">
+                <div class=" col-xs-3 col-md-6 tp-header">
+
+                    <img src="~/Content/Images/Logo/homeLogo.png" alt="logo" style="width:221px;height:62px">
+                </div>
+                <div class="col-xs-9 col-md-6  ">
+                    <div class="row tp-header">
+                        <div class="col-xs-4 col-md-4 text-center">
+                            @*<img src="~/Content/Images/Logo/hengxin_phoneLogo.png" alt="logo" style="width:266px;height:42px">*@
+                            <i class="glyphicon glyphicon-phone hidden-xs header-login"> 021-65650169</i>
+
+                        </div>
+                        <div class="col-xs-8 col-md-8 text-left">
+                            <i class="glyphicon glyphicon-map-marker  hidden-xs header-login">上海市杨浦区湾谷科技园</i>
+
+                            @*@Html.ActionLink("登录", "Logon", "Customer", "", new { @class = "hidden-xs header-login " })
+                        @Html.ActionLink("注册", "Register", "Customer", "", new { @class = "hidden-xs header-login " })*@
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="navigation-inner col-xs-12 col-md-12 text-right">
+                            <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#myMegamenu">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                            <div class="navigation-v3 collapse navbar-collapse" id="myMegamenu">
+                                <ul class="nav navbar-nav">
+                                    <li>
+                                        <a href="@Url.RouteUrl("HomePage")" class="hvr-underline-from-center">首页</a>
+                                    </li>
+                                    <li>
+                                        <a href="@Url.RouteUrl("AboutUs")" class="hvr-underline-from-center">关于我们</a>
+                                        @*@Html.ActionLink("关于我们", "AboutUs", "Introduce", "", new { @class = "hvr-underline-from-center" })*@
+                                    </li>
+                                    <li>
+                                        <a href="@Url.RouteUrl("Product")" class="hvr-underline-from-center">产品中心</a>
+                                    </li>
+                                    @*<li>
+                                    <a href="@Url.RouteUrl("NewsItems")" class="hvr-underline-from-center">新闻中心</a>
+                                </li>*@
+                                    <li>
+
+                                        <a href="@Url.RouteUrl("Support")" class="hvr-underline-from-center">服务与支持</a>
+
+                                    </li>
+                                    <li>
+                                        <a href="@Url.RouteUrl("ContactUs")" class="hvr-underline-from-center">联系我们</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+
+</div>
+
+
+

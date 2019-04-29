@@ -1,0 +1,168 @@
+﻿@using NopFramework.Admin.Models.Common;
+@model SystemInfoModel
+@{
+    ViewBag.Title = "版本信息";
+    Html.SetActiveMenuItemSystemName("System information");
+
+}
+<div class="content-header clearfix">
+    <h1 class="pull-left">
+        版本信息
+    </h1>
+    <div class="pull-right">
+        &nbsp;
+    </div>
+</div>
+<div class="content">
+    <div class="form-horizontal">
+        <div class="panel-group">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <div class="form-group">
+                        <div class="col-md-3">
+                            @Html.NopFrameowrkLabelFor(model => model.SysVersion)
+                        </div>
+                        <div class="col-md-9">
+                            @Html.DisplayFor(model => model.SysVersion)
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-3">
+                            @Html.NopFrameowrkLabelFor(model => model.OperationSystem)
+                        </div>
+                        <div class="col-md-9">
+                            @Html.DisplayFor(model => model.OperationSystem)
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-3">
+                            @Html.NopFrameowrkLabelFor(model => model.AspNetInfo)
+                        </div>
+                        <div class="col-md-9">
+                            @Html.DisplayFor(model => model.AspNetInfo)
+                        </div>
+
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-3">
+                            @Html.NopFrameowrkLabelFor(model => model.IsFullTrust)
+                        </div>
+                        <div class="col-md-9">
+                            @Html.DisplayFor(model => model.IsFullTrust)
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-3">
+                            @Html.NopFrameowrkLabelFor(model => model.ServerTimeZone)
+                        </div>
+                        <div class="col-md-9">
+                            @Html.DisplayFor(model => model.ServerTimeZone)
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-3">
+                            @Html.NopFrameowrkLabelFor(model => model.ServerLocalTime)
+                        </div>
+                        <div class="col-md-9">
+                            @Html.DisplayFor(model => model.ServerLocalTime)
+                            @*@Html.dis(Model.ServerLocalTime.ToString("F"))*@
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-3">
+                            @Html.NopFrameowrkLabelFor(model => model.UtcTime)
+                        </div>
+                        <div class="col-md-9">
+                            @Html.DisplayFor(model => model.UtcTime)
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-3">
+                            @Html.NopFrameowrkLabelFor(model => model.CurrentUserTime)
+                        </div>
+                        <div class="col-md-9">
+                            @Html.DisplayFor(model => model.CurrentUserTime)
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-3">
+                            @Html.NopFrameowrkLabelFor(model => model.CurrentUserTime)
+                        </div>
+                        <div class="col-md-9">
+
+                            @Html.DisplayFor(model => model.CurrentUserTime)
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-3">
+                            @Html.NopFrameowrkLabelFor(model => model.ServerVariables)
+                        </div>
+                        <div class="col-md-9">
+                            <a id="serverVariablesShowHide" href="javascript:toggleLoadedServerVariables();">显示</a>
+                            <div id="pnlServerVariables" style="display: none; word-break: break-all">
+                                <ul class="common-list">
+                                    @foreach (var serverVariable in Model.ServerVariables)
+                                    {
+                                        <li>
+                                            @serverVariable.Name<text>:</text>
+                                            @serverVariable.Value
+                                        </li>
+                                    }
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-3">
+                            @Html.NopFrameowrkLabelFor(model => model.LoadedAssemblies)
+                        </div>
+                        <div class="col-md-9">
+                            <a id="loadedAssembliesShowHide" href="javascript:toggleLoadedAssemblies();">显示</a>
+                            <div id="pnlLoadedAssemblies" style="display: none">
+                                <ul class="common-list">
+                                    @foreach (var assembly in Model.LoadedAssemblies)
+                                    {
+                                        <li>
+                                            <div>@assembly.FullName</div>
+                                            @if (!String.IsNullOrEmpty(assembly.Location))
+                                            {
+                                                <div>
+                                                    <em>@assembly.Location</em>
+                                                </div>
+                                            }
+                                        </li>
+                                    }
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    function toggleLoadedAssemblies() {
+        $('#pnlLoadedAssemblies').toggle();
+        if ($('#pnlLoadedAssemblies').css('display') == 'none') {
+            $('#loadedAssembliesShowHide').html('显示');
+        }
+        else {
+            $('#loadedAssembliesShowHide').html('隐藏');
+        }
+    }
+
+    function toggleLoadedServerVariables() {
+        $('#pnlServerVariables').toggle();
+        if ($('#pnlServerVariables').css('display') == 'none') {
+            $('#serverVariablesShowHide').html('显示');
+        }
+        else {
+            $('#serverVariablesShowHide').html('隐藏');
+        }
+    }
+</script>

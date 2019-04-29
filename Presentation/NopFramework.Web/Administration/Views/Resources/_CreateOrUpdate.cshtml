@@ -1,0 +1,96 @@
+﻿@using NopFramework.Web.Framework.UI
+@using NopFramework.Web.Framework
+@using NopFramework.Admin.Models.Media
+@model ResourceModel
+@{ 
+    var clientId =0;
+}
+<div class="content">
+    <div class="form-horizontal">
+        <div class="nav-tabs-custom">
+            <ul class="nav nav-tabs">
+                @Html.RenderBootstrapTabHeader("tab-resource", "资料")
+                @Html.RenderBootstrapTabHeader("tab-info", "基本信息", true)
+
+            </ul>
+            <div class="tab-content">
+                @Html.RenderBootstrapTabContent("tab-resource", @TabResource())
+                @Html.RenderBootstrapTabContent("tab-info", @TabInfo(), true)
+
+            </div>
+        </div>
+    </div>
+</div>
+
+@helper TabInfo()
+{
+    <div class="panel-group">
+        @if (Model.Id > 0)
+        {
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <div class="form-group">
+                        <div class="col-md-3">
+                            @Html.NopFrameowrkLabelFor(model => model.ResourceType)
+                        </div>
+
+                        <div class="col-md-9">
+                            @Html.NopFramoworkDropDownListFor(model => model.ResourceType, Model.ResourceTypes)
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+        else
+        {
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    您需要先保存才能进一步操作
+                </div>
+            </div>
+        }
+    </div>
+}
+@helper TabResource()
+{
+    <div class="panel-group">
+
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <div class="form-group">
+                    <div class="col-md-3">
+                        @Html.NopFrameowrkLabelFor(model => model.Id)
+                    </div>
+                    <div class="col-md-9">
+                        @Html.NopFrameowrkEditorFor(model => model.Id)
+                        @Html.ValidationMessageFor(model => model.Id)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-9 col-md-offset-3">
+                        <button type="button" id="addResource" class="btn btn-primary">
+                            添加
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+<script type="text/javascript">
+                    $(document).ready(function () {
+                        $('#addResource').click(function () {
+                            var pictureId = $("#@Html.FieldIdFor(model=>model.Id)").val();
+                            clientId = pictureId;
+                            //var pictureId = 1;
+                            if (pictureId == 0) {
+                                alert("Upload picture first");
+                                return;
+                            }
+                            else {
+                                location.href = '/Admin/Resources/Edit/' + pictureId; 
+                            }
+                        });
+                    });
+</script>

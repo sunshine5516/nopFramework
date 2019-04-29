@@ -1,0 +1,79 @@
+﻿@using NopFramework.Admin.Models.News
+@using NopFramework.Web.Framework
+@model NewsItemModel
+@Html.ValidationSummary(true)
+@Html.HiddenFor(model => model.Id)
+<div class="content">
+    <div class="form-horizontal">
+        <div id="customer-edit" class="nav-tabs-custom">
+            <ul class="nav nav-tabs">
+                @Html.RenderBootstrapTabHeader("tab-info", "新闻信息", true)
+                @Html.RenderBootstrapTabHeader("tab-infow", "搜索引擎优化")
+            </ul>
+            <div class="tab-content">
+                @Html.RenderBootstrapTabContent("tab-info", @TabInfo(), true)
+                @*@Html.RenderBootstrapTabContent("tab-seo", @TabSeo())*@
+            </div>
+        </div>
+    </div>
+</div>
+@helper TabInfo()
+{
+
+    <div class="panel-group">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <div class="form-group">
+                    <div class="col-md-3">
+                        @Html.NopFrameowrkLabelFor(model => model.Title)
+                    </div>
+                    <div class="col-md-9">
+                        @Html.NopFrameowrkEditorFor(model => model.Title)
+                        @Html.ValidationMessageFor(model => model.Title)
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-3">
+                        @Html.NopFrameowrkLabelFor(model => model.MetaTitle)
+                    </div>
+                    <div class="col-md-9">
+                        @Html.NopFrameowrkEditorFor(model => model.MetaTitle)
+                        @Html.ValidationMessageFor(model => model.MetaTitle)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-3">
+                        @Html.NopFrameowrkLabelFor(model => model.AllowComments)
+                    </div>
+                    <div class="col-md-9">
+                        @Html.NopFrameowrkEditorFor(model => model.AllowComments)
+                        @Html.ValidationMessageFor(model => model.AllowComments)
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-3">
+                        @Html.NopFrameowrkLabelFor(model => model.Contents)
+                    </div>
+                    <div class="col-md-9">
+                        @Html.EditorFor(model => model.Contents, "RichEditor")
+                        @Html.ValidationMessageFor(model => model.Contents)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-3">
+                        @Html.NopFrameowrkLabelFor(model => model.IsPublished)
+                    </div>
+                    <div class="col-md-9">
+                        @Html.NopFrameowrkEditorFor(model => model.IsPublished)
+                        @Html.ValidationMessageFor(model => model.IsPublished)
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+}
+
+

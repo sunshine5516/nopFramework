@@ -1,0 +1,19 @@
+﻿@using NopFramework.Web.Framework
+@using NopFramework.Web.Framework.UI
+@{
+    //Layout = null;
+    ViewBag.Title = "Home Page";
+}
+<div class="page home-page">
+    <div class="page-body">
+        @*@Html.Widget("home_page_helloworld")*@
+        @Html.Widget("home_page_top")
+        @*@Html.Action("WidgetsByZone", "Widget", new { widgetZone = "home_page_top"})*@
+
+        <!-------------about end----------->
+        @Html.Action("HomeProduct", "Product");
+        @Html.Action("HomeCoreTechnology", "Introduce");
+        @*@Html.Action("HomePageNews", "News")*@
+
+    </div>
+</div>

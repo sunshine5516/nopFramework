@@ -1,0 +1,402 @@
+﻿@using NopFramework.Web.Models.Catalog
+@using NopFramework.Web.Framework.UI
+@model ProductDetailsModel
+@{
+    ViewBag.Title = "ProductDetail";
+}
+@Html.Action("ProductMenu", "Product")
+
+<div class="container">
+    <div class="tab-content">
+        @*@foreach (var product in Model)
+        {
+
+        }*@
+        <ul class="blocks-xs-2 blocks-md-2 blocks-lg-4 blocks-xxl-4 no-space imagesize index-product-list tab-pane animation-scale-up active" id="all" role="tabpanel" data-scale="$ui[img_h]X$ui[img_w]" aria-expanded="true">
+            <li class="p-r-10 m-b-10" data-type="list_6">
+                <div class="card card-shadow">
+                    <figure class="card-header cover">
+                        <a href="https://show.metinfo.cn/m/mui120/363/product/showproduct.php?id=9" title="XB11B型血压表" target="_self">
+                            <img class="cover-image lazy" data-original="https://images.metinfo.cn/m/mui120/363/upload/mui120/363/thumb_src/640_480/1524626831.jpg" alt="XB11B型血压表" src="https://images.metinfo.cn/m/mui120/363/upload/mui120/363/thumb_src/640_480/1524626831.jpg" style="display: inline;">
+                        </a>
+                    </figure>
+                    <h4 class="card-title m-0 p-x-10 text-shadow-none font-szie-16">
+                        <a href="https://show.metinfo.cn/m/mui120/363/product/showproduct.php?id=9" title="XB11B型血压表" class="block text-truncate" target="_self">XB11B型血压表</a>
+                        <p class="m-b-0 m-t-5 product_price"></p>
+                    </h4>
+                </div>
+            </li>
+            <li class="p-r-10 m-b-10" data-type="list_6">
+                <div class="card card-shadow">
+                    <figure class="card-header cover">
+                        <a href="https://show.metinfo.cn/m/mui120/363/product/showproduct.php?id=8" title="YG900双臂电动医用供给吊塔" target="_self">
+                            <img class="cover-image lazy" data-original="https://images.metinfo.cn/m/mui120/363/upload/mui120/363/thumb_src/640_480/1524626701.jpg" alt="YG900双臂电动医用供给吊塔" src="https://images.metinfo.cn/m/mui120/363/upload/mui120/363/thumb_src/640_480/1524626701.jpg" style="display: inline;">
+                        </a>
+                    </figure>
+                    <h4 class="card-title m-0 p-x-10 text-shadow-none font-szie-16">
+                        <a href="https://show.metinfo.cn/m/mui120/363/product/showproduct.php?id=8" title="YG900双臂电动医用供给吊塔" class="block text-truncate" target="_self">YG900双臂电动医用供给吊塔</a>
+                        <p class="m-b-0 m-t-5 product_price"></p>
+                    </h4>
+                </div>
+            </li>
+            <li class="p-r-10 m-b-10" data-type="list_6">
+                <div class="card card-shadow">
+                    <figure class="card-header cover">
+                        <a href="https://show.metinfo.cn/m/mui120/363/product/showproduct.php?id=1" title="DT12-E电动手术台" target="_self">
+                            <img class="cover-image lazy" data-original="https://images.metinfo.cn/m/mui120/363/upload/mui120/363/thumb_src/640_480/1524622642.jpg" alt="DT12-E电动手术台" src="https://images.metinfo.cn/m/mui120/363/upload/mui120/363/thumb_src/640_480/1524622642.jpg" style="display: inline;">
+                        </a>
+                    </figure>
+                    <h4 class="card-title m-0 p-x-10 text-shadow-none font-szie-16">
+                        <a href="https://show.metinfo.cn/m/mui120/363/product/showproduct.php?id=1" title="DT12-E电动手术台" class="block text-truncate" target="_self">DT12-E电动手术台</a>
+                        <p class="m-b-0 m-t-5 product_price"></p>
+                    </h4>
+                </div>
+            </li>
+            <li class="p-r-10 m-b-10" data-type="list_6">
+                <div class="card card-shadow">
+                    <figure class="card-header cover">
+                        <a href="https://show.metinfo.cn/m/mui120/363/product/showproduct.php?id=2" title="DT12-B1电动手术台" target="_self">
+                            <img class="cover-image lazy" data-original="https://images.metinfo.cn/m/mui120/363/upload/mui120/363/thumb_src/640_480/1524623676.jpg" alt="DT12-B1电动手术台" src="https://images.metinfo.cn/m/mui120/363/upload/mui120/363/thumb_src/640_480/1524623676.jpg" style="display: inline;">
+                        </a>
+                    </figure>
+                    <h4 class="card-title m-0 p-x-10 text-shadow-none font-szie-16">
+                        <a href="https://show.metinfo.cn/m/mui120/363/product/showproduct.php?id=2" title="DT12-B1电动手术台" class="block text-truncate" target="_self">DT12-B1电动手术台</a>
+                        <p class="m-b-0 m-t-5 product_price"></p>
+                    </h4>
+                </div>
+            </li>
+            <li class="p-r-10 m-b-10" data-type="list_6">
+                <div class="card card-shadow">
+                    <figure class="card-header cover">
+                        <a href="https://show.metinfo.cn/m/mui120/363/product/showproduct.php?id=4" title="EL700/500手术无影灯" target="_self">
+                            <img class="cover-image lazy" data-original="https://images.metinfo.cn/m/mui120/363/upload/mui120/363/thumb_src/640_480/1524624826.jpg" alt="EL700/500手术无影灯" src="https://images.metinfo.cn/m/mui120/363/upload/mui120/363/thumb_src/640_480/1524624826.jpg" style="display: inline;">
+                        </a>
+                    </figure>
+                    <h4 class="card-title m-0 p-x-10 text-shadow-none font-szie-16">
+                        <a href="https://show.metinfo.cn/m/mui120/363/product/showproduct.php?id=4" title="EL700/500手术无影灯" class="block text-truncate" target="_self">EL700/500手术无影灯</a>
+                        <p class="m-b-0 m-t-5 product_price"></p>
+                    </h4>
+                </div>
+            </li>
+            <li class="p-r-10 m-b-10" data-type="list_6">
+                <div class="card card-shadow">
+                    <figure class="card-header cover">
+                        <a href="https://show.metinfo.cn/m/mui120/363/product/showproduct.php?id=5" title="ELL700立式手术灯" target="_self">
+                            <img class="cover-image lazy" data-original="https://images.metinfo.cn/m/mui120/363/upload/mui120/363/thumb_src/640_480/1524625277.jpg" alt="ELL700立式手术灯" src="https://images.metinfo.cn/m/mui120/363/upload/mui120/363/thumb_src/640_480/1524625277.jpg" style="display: inline;">
+                        </a>
+                    </figure>
+                    <h4 class="card-title m-0 p-x-10 text-shadow-none font-szie-16">
+                        <a href="https://show.metinfo.cn/m/mui120/363/product/showproduct.php?id=5" title="ELL700立式手术灯" class="block text-truncate" target="_self">ELL700立式手术灯</a>
+                        <p class="m-b-0 m-t-5 product_price"></p>
+                    </h4>
+                </div>
+            </li>
+            <li class="p-r-10 m-b-10" data-type="list_6">
+                <div class="card card-shadow">
+                    <figure class="card-header cover">
+                        <a href="https://show.metinfo.cn/m/mui120/363/product/showproduct.php?id=3" title="LED750/550手术无影灯" target="_self">
+                            <img class="cover-image lazy" data-original="https://images.metinfo.cn/m/mui120/363/upload/mui120/363/thumb_src/640_480/1524624039.jpg" alt="LED750/550手术无影灯" src="https://images.metinfo.cn/m/mui120/363/upload/mui120/363/thumb_src/640_480/1524624039.jpg" style="display: inline;">
+                        </a>
+                    </figure>
+                    <h4 class="card-title m-0 p-x-10 text-shadow-none font-szie-16">
+                        <a href="https://show.metinfo.cn/m/mui120/363/product/showproduct.php?id=3" title="LED750/550手术无影灯" class="block text-truncate" target="_self">LED750/550手术无影灯</a>
+                        <p class="m-b-0 m-t-5 product_price"></p>
+                    </h4>
+                </div>
+            </li>
+            <li class="p-r-10 m-b-10" data-type="list_6">
+                <div class="card card-shadow">
+                    <figure class="card-header cover">
+                        <a href="https://show.metinfo.cn/m/mui120/363/product/showproduct.php?id=6" title="MHJ-IC 麻醉机" target="_self">
+                            <img class="cover-image lazy" data-original="https://images.metinfo.cn/m/mui120/363/upload/mui120/363/thumb_src/640_480/1524626134.jpg" alt="MHJ-IC 麻醉机" src="https://images.metinfo.cn/m/mui120/363/upload/mui120/363/thumb_src/640_480/1524626134.jpg" style="display: inline;">
+                        </a>
+                    </figure>
+                    <h4 class="card-title m-0 p-x-10 text-shadow-none font-szie-16">
+                        <a href="https://show.metinfo.cn/m/mui120/363/product/showproduct.php?id=6" title="MHJ-IC 麻醉机" class="block text-truncate" target="_self">MHJ-IC 麻醉机</a>
+                        <p class="m-b-0 m-t-5 product_price"></p>
+                    </h4>
+                </div>
+            </li>
+        </ul>
+        <ul class="blocks-xs-2       blocks-md-2 blocks-lg-4 blocks-xxl-4 no-space imagesize index-product-list tab-pane animation-scale-up" data-scale="$ui[img_h]X$ui[img_w]" id="list_6" role="tabpanel" aria-expanded="false">
+            <li class="p-r-10 m-b-10" data-type="list_6">
+                <div class="card card-shadow">
+                    <figure class="card-header cover">
+                        <a href="https://show.metinfo.cn/m/mui120/363/product/showproduct.php?id=9" title="XB11B型血压表" target="_self">
+                            <img class="cover-image lazy" data-original="https://images.metinfo.cn/m/mui120/363/upload/mui120/363/thumb_src/640_480/1524626831.jpg" alt="XB11B型血压表" src="https://images.metinfo.cn/m/mui120/363/upload/mui120/363/thumb_src/640_480/1524626831.jpg" style="display: inline;">
+                        </a>
+                    </figure>
+                    <h4 class="card-title m-0 p-x-10 text-shadow-none font-szie-16">
+                        <a href="https://show.metinfo.cn/m/mui120/363/product/showproduct.php?id=9" title="XB11B型血压表" class="block text-truncate" target="_self">XB11B型血压表</a>
+                    </h4>
+                </div>
+            </li>
+            <li class="p-r-10 m-b-10" data-type="list_6">
+                <div class="card card-shadow">
+                    <figure class="card-header cover">
+                        <a href="https://show.metinfo.cn/m/mui120/363/product/showproduct.php?id=8" title="YG900双臂电动医用供给吊塔" target="_self">
+                            <img class="cover-image lazy" data-original="https://images.metinfo.cn/m/mui120/363/upload/mui120/363/thumb_src/640_480/1524626701.jpg" alt="YG900双臂电动医用供给吊塔" src="https://images.metinfo.cn/m/mui120/363/upload/mui120/363/thumb_src/640_480/1524626701.jpg" style="display: inline;">
+                        </a>
+                    </figure>
+                    <h4 class="card-title m-0 p-x-10 text-shadow-none font-szie-16">
+                        <a href="https://show.metinfo.cn/m/mui120/363/product/showproduct.php?id=8" title="YG900双臂电动医用供给吊塔" class="block text-truncate" target="_self">YG900双臂电动医用供给吊塔</a>
+                    </h4>
+                </div>
+            </li>
+            <li class="p-r-10 m-b-10" data-type="list_6">
+                <div class="card card-shadow">
+                    <figure class="card-header cover">
+                        <a href="https://show.metinfo.cn/m/mui120/363/product/showproduct.php?id=1" title="DT12-E电动手术台" target="_self">
+                            <img class="cover-image lazy" data-original="https://images.metinfo.cn/m/mui120/363/upload/mui120/363/thumb_src/640_480/1524622642.jpg" alt="DT12-E电动手术台" src="https://images.metinfo.cn/m/mui120/363/upload/mui120/363/thumb_src/640_480/1524622642.jpg" style="display: inline;">
+                        </a>
+                    </figure>
+                    <h4 class="card-title m-0 p-x-10 text-shadow-none font-szie-16">
+                        <a href="https://show.metinfo.cn/m/mui120/363/product/showproduct.php?id=1" title="DT12-E电动手术台" class="block text-truncate" target="_self">DT12-E电动手术台</a>
+                    </h4>
+                </div>
+            </li>
+            <li class="p-r-10 m-b-10" data-type="list_6">
+                <div class="card card-shadow">
+                    <figure class="card-header cover">
+                        <a href="https://show.metinfo.cn/m/mui120/363/product/showproduct.php?id=2" title="DT12-B1电动手术台" target="_self">
+                            <img class="cover-image lazy" data-original="https://images.metinfo.cn/m/mui120/363/upload/mui120/363/thumb_src/640_480/1524623676.jpg" alt="DT12-B1电动手术台" src="https://images.metinfo.cn/m/mui120/363/upload/mui120/363/thumb_src/640_480/1524623676.jpg" style="display: inline;">
+                        </a>
+                    </figure>
+                    <h4 class="card-title m-0 p-x-10 text-shadow-none font-szie-16">
+                        <a href="https://show.metinfo.cn/m/mui120/363/product/showproduct.php?id=2" title="DT12-B1电动手术台" class="block text-truncate" target="_self">DT12-B1电动手术台</a>
+                    </h4>
+                </div>
+            </li>
+            <li class="p-r-10 m-b-10" data-type="list_6">
+                <div class="card card-shadow">
+                    <figure class="card-header cover">
+                        <a href="https://show.metinfo.cn/m/mui120/363/product/showproduct.php?id=4" title="EL700/500手术无影灯" target="_self">
+                            <img class="cover-image lazy" data-original="https://images.metinfo.cn/m/mui120/363/upload/mui120/363/thumb_src/640_480/1524624826.jpg" alt="EL700/500手术无影灯" src="https://images.metinfo.cn/m/mui120/363/upload/mui120/363/thumb_src/640_480/1524624826.jpg" style="display: inline;">
+                        </a>
+                    </figure>
+                    <h4 class="card-title m-0 p-x-10 text-shadow-none font-szie-16">
+                        <a href="https://show.metinfo.cn/m/mui120/363/product/showproduct.php?id=4" title="EL700/500手术无影灯" class="block text-truncate" target="_self">EL700/500手术无影灯</a>
+                    </h4>
+                </div>
+            </li>
+            <li class="p-r-10 m-b-10" data-type="list_6">
+                <div class="card card-shadow">
+                    <figure class="card-header cover">
+                        <a href="https://show.metinfo.cn/m/mui120/363/product/showproduct.php?id=5" title="ELL700立式手术灯" target="_self">
+                            <img class="cover-image lazy" data-original="https://images.metinfo.cn/m/mui120/363/upload/mui120/363/thumb_src/640_480/1524625277.jpg" alt="ELL700立式手术灯" src="https://images.metinfo.cn/m/mui120/363/upload/mui120/363/thumb_src/640_480/1524625277.jpg" style="display: inline;">
+                        </a>
+                    </figure>
+                    <h4 class="card-title m-0 p-x-10 text-shadow-none font-szie-16">
+                        <a href="https://show.metinfo.cn/m/mui120/363/product/showproduct.php?id=5" title="ELL700立式手术灯" class="block text-truncate" target="_self">ELL700立式手术灯</a>
+                    </h4>
+                </div>
+            </li>
+            <li class="p-r-10 m-b-10" data-type="list_6">
+                <div class="card card-shadow">
+                    <figure class="card-header cover">
+                        <a href="https://show.metinfo.cn/m/mui120/363/product/showproduct.php?id=3" title="LED750/550手术无影灯" target="_self">
+                            <img class="cover-image lazy" data-original="https://images.metinfo.cn/m/mui120/363/upload/mui120/363/thumb_src/640_480/1524624039.jpg" alt="LED750/550手术无影灯" src="https://images.metinfo.cn/m/mui120/363/upload/mui120/363/thumb_src/640_480/1524624039.jpg" style="display: inline;">
+                        </a>
+                    </figure>
+                    <h4 class="card-title m-0 p-x-10 text-shadow-none font-szie-16">
+                        <a href="https://show.metinfo.cn/m/mui120/363/product/showproduct.php?id=3" title="LED750/550手术无影灯" class="block text-truncate" target="_self">LED750/550手术无影灯</a>
+                    </h4>
+                </div>
+            </li>
+            <li class="p-r-10 m-b-10" data-type="list_6">
+                <div class="card card-shadow">
+                    <figure class="card-header cover">
+                        <a href="https://show.metinfo.cn/m/mui120/363/product/showproduct.php?id=6" title="MHJ-IC 麻醉机" target="_self">
+                            <img class="cover-image lazy" data-original="https://images.metinfo.cn/m/mui120/363/upload/mui120/363/thumb_src/640_480/1524626134.jpg" alt="MHJ-IC 麻醉机" src="https://images.metinfo.cn/m/mui120/363/upload/mui120/363/thumb_src/640_480/1524626134.jpg" style="display: inline;">
+                        </a>
+                    </figure>
+                    <h4 class="card-title m-0 p-x-10 text-shadow-none font-szie-16">
+                        <a href="https://show.metinfo.cn/m/mui120/363/product/showproduct.php?id=6" title="MHJ-IC 麻醉机" class="block text-truncate" target="_self">MHJ-IC 麻醉机</a>
+                    </h4>
+                </div>
+            </li>
+        </ul>
+        <ul class="
+			    			blocks-xs-2					 	blocks-md-2 blocks-lg-4 blocks-xxl-4 no-space imagesize index-product-list tab-pane animation-scale-up" data-scale="$ui[img_h]X$ui[img_w]" id="list_5" role="tabpanel">
+            <li class="p-r-10 m-b-10" data-type="list_5">
+                <div class="card card-shadow">
+                    <figure class="card-header cover">
+                        <a href="https://show.metinfo.cn/m/mui120/363/product/showproduct.php?id=18" title="牙科分离剂" target="_self">
+                            <img class="cover-image lazy imgloading" data-original="https://images.metinfo.cn/m/mui120/363/upload/mui120/363/thumb_src/640_480/1524645928.jpg" alt="牙科分离剂" src="https://show.metinfo.cn/m/mui120/363/public/ui/v2/static/img/loading.gif">
+                        </a>
+                    </figure>
+                    <h4 class="card-title m-0 p-x-10 text-shadow-none font-szie-16">
+                        <a href="https://show.metinfo.cn/m/mui120/363/product/showproduct.php?id=18" title="牙科分离剂" class="block text-truncate" target="_self">牙科分离剂</a>
+                    </h4>
+                </div>
+            </li>
+            <li class="p-r-10 m-b-10" data-type="list_5">
+                <div class="card card-shadow">
+                    <figure class="card-header cover">
+                        <a href="https://show.metinfo.cn/m/mui120/363/product/showproduct.php?id=17" title="成型片" target="_self">
+                            <img class="cover-image lazy imgloading" data-original="https://images.metinfo.cn/m/mui120/363/upload/mui120/363/thumb_src/640_480/1524646273.jpg" alt="成型片" src="https://show.metinfo.cn/m/mui120/363/public/ui/v2/static/img/loading.gif">
+                        </a>
+                    </figure>
+                    <h4 class="card-title m-0 p-x-10 text-shadow-none font-szie-16">
+                        <a href="https://show.metinfo.cn/m/mui120/363/product/showproduct.php?id=17" title="成型片" class="block text-truncate" target="_self">成型片</a>
+                    </h4>
+                </div>
+            </li>
+            <li class="p-r-10 m-b-10" data-type="list_5">
+                <div class="card card-shadow">
+                    <figure class="card-header cover">
+                        <a href="https://show.metinfo.cn/m/mui120/363/product/showproduct.php?id=16" title="齿科砂轮" target="_self">
+                            <img class="cover-image lazy imgloading" data-original="https://images.metinfo.cn/m/mui120/363/upload/mui120/363/thumb_src/640_480/1524645502.jpg" alt="齿科砂轮" src="https://show.metinfo.cn/m/mui120/363/public/ui/v2/static/img/loading.gif">
+                        </a>
+                    </figure>
+                    <h4 class="card-title m-0 p-x-10 text-shadow-none font-szie-16">
+                        <a href="https://show.metinfo.cn/m/mui120/363/product/showproduct.php?id=16" title="齿科砂轮" class="block text-truncate" target="_self">齿科砂轮</a>
+                    </h4>
+                </div>
+            </li>
+            <li class="p-r-10 m-b-10" data-type="list_5">
+                <div class="card card-shadow">
+                    <figure class="card-header cover">
+                        <a href="https://show.metinfo.cn/m/mui120/363/product/showproduct.php?id=15" title="红白打样膏" target="_self">
+                            <img class="cover-image lazy imgloading" data-original="https://images.metinfo.cn/m/mui120/363/upload/mui120/363/thumb_src/640_480/1524645153.jpg" alt="红白打样膏" src="https://show.metinfo.cn/m/mui120/363/public/ui/v2/static/img/loading.gif">
+                        </a>
+                    </figure>
+                    <h4 class="card-title m-0 p-x-10 text-shadow-none font-szie-16">
+                        <a href="https://show.metinfo.cn/m/mui120/363/product/showproduct.php?id=15" title="红白打样膏" class="block text-truncate" target="_self">红白打样膏</a>
+                    </h4>
+                </div>
+            </li>
+            <li class="p-r-10 m-b-10" data-type="list_5">
+                <div class="card card-shadow">
+                    <figure class="card-header cover">
+                        <a href="https://show.metinfo.cn/m/mui120/363/product/showproduct.php?id=14" title="高强度硬质钴铬合金" target="_self">
+                            <img class="cover-image lazy imgloading" data-original="https://images.metinfo.cn/m/mui120/363/upload/mui120/363/thumb_src/640_480/1524644016.jpg" alt="高强度硬质钴铬合金" src="https://show.metinfo.cn/m/mui120/363/public/ui/v2/static/img/loading.gif">
+                        </a>
+                    </figure>
+                    <h4 class="card-title m-0 p-x-10 text-shadow-none font-szie-16">
+                        <a href="https://show.metinfo.cn/m/mui120/363/product/showproduct.php?id=14" title="高强度硬质钴铬合金" class="block text-truncate" target="_self">高强度硬质钴铬合金</a>
+                    </h4>
+                </div>
+            </li>
+            <li class="p-r-10 m-b-10" data-type="list_5">
+                <div class="card card-shadow">
+                    <figure class="card-header cover">
+                        <a href="https://show.metinfo.cn/m/mui120/363/product/showproduct.php?id=13" title="薄蜡片" target="_self">
+                            <img class="cover-image lazy imgloading" data-original="https://images.metinfo.cn/m/mui120/363/upload/mui120/363/thumb_src/640_480/1524643898.jpg" alt="薄蜡片" src="https://show.metinfo.cn/m/mui120/363/public/ui/v2/static/img/loading.gif">
+                        </a>
+                    </figure>
+                    <h4 class="card-title m-0 p-x-10 text-shadow-none font-szie-16">
+                        <a href="https://show.metinfo.cn/m/mui120/363/product/showproduct.php?id=13" title="薄蜡片" class="block text-truncate" target="_self">薄蜡片</a>
+                    </h4>
+                </div>
+            </li>
+            <li class="p-r-10 m-b-10" data-type="list_5">
+                <div class="card card-shadow">
+                    <figure class="card-header cover">
+                        <a href="https://show.metinfo.cn/m/mui120/363/product/showproduct.php?id=12" title="义齿基托树脂Ⅰ型" target="_self">
+                            <img class="cover-image lazy imgloading" data-original="https://images.metinfo.cn/m/mui120/363/upload/mui120/363/thumb_src/640_480/1524641228.jpg" alt="义齿基托树脂Ⅰ型" src="https://show.metinfo.cn/m/mui120/363/public/ui/v2/static/img/loading.gif">
+                        </a>
+                    </figure>
+                    <h4 class="card-title m-0 p-x-10 text-shadow-none font-szie-16">
+                        <a href="https://show.metinfo.cn/m/mui120/363/product/showproduct.php?id=12" title="义齿基托树脂Ⅰ型" class="block text-truncate" target="_self">义齿基托树脂Ⅰ型</a>
+                    </h4>
+                </div>
+            </li>
+            <li class="p-r-10 m-b-10" data-type="list_5">
+                <div class="card card-shadow">
+                    <figure class="card-header cover">
+                        <a href="https://show.metinfo.cn/m/mui120/363/product/showproduct.php?id=11" title="磷酸锌水门汀" target="_self">
+                            <img class="cover-image lazy imgloading" data-original="https://images.metinfo.cn/m/mui120/363/upload/mui120/363/thumb_src/640_480/1524628014.jpg" alt="磷酸锌水门汀" src="https://show.metinfo.cn/m/mui120/363/public/ui/v2/static/img/loading.gif">
+                        </a>
+                    </figure>
+                    <h4 class="card-title m-0 p-x-10 text-shadow-none font-szie-16">
+                        <a href="https://show.metinfo.cn/m/mui120/363/product/showproduct.php?id=11" title="磷酸锌水门汀" class="block text-truncate" target="_self">磷酸锌水门汀</a>
+                    </h4>
+                </div>
+            </li>
+        </ul>
+        <ul class="
+			    			blocks-xs-2					 	blocks-md-2 blocks-lg-4 blocks-xxl-4 no-space imagesize index-product-list tab-pane animation-scale-up" data-scale="$ui[img_h]X$ui[img_w]" id="list_4" role="tabpanel">
+            <li class="p-r-10 m-b-10" data-type="list_4">
+                <div class="card card-shadow">
+                    <figure class="card-header cover">
+                        <a href="https://show.metinfo.cn/m/mui120/363/product/showproduct.php?id=22" title="一次性使用肠营养管II型" target="_self">
+                            <img class="cover-image lazy imgloading" data-original="https://images.metinfo.cn/m/mui120/363/upload/mui120/363/thumb_src/640_480/1524646417.jpg" alt="一次性使用肠营养管II型" src="https://show.metinfo.cn/m/mui120/363/public/ui/v2/static/img/loading.gif">
+                        </a>
+                    </figure>
+                    <h4 class="card-title m-0 p-x-10 text-shadow-none font-szie-16">
+                        <a href="https://show.metinfo.cn/m/mui120/363/product/showproduct.php?id=22" title="一次性使用肠营养管II型" class="block text-truncate" target="_self">一次性使用肠营养管II型</a>
+                    </h4>
+                </div>
+            </li>
+            <li class="p-r-10 m-b-10" data-type="list_4">
+                <div class="card card-shadow">
+                    <figure class="card-header cover">
+                        <a href="https://show.metinfo.cn/m/mui120/363/product/showproduct.php?id=21" title="胸腔闭式引流包I型" target="_self">
+                            <img class="cover-image lazy imgloading" data-original="https://images.metinfo.cn/m/mui120/363/upload/mui120/363/thumb_src/640_480/1524646557.jpg" alt="胸腔闭式引流包I型" src="https://show.metinfo.cn/m/mui120/363/public/ui/v2/static/img/loading.gif">
+                        </a>
+                    </figure>
+                    <h4 class="card-title m-0 p-x-10 text-shadow-none font-szie-16">
+                        <a href="https://show.metinfo.cn/m/mui120/363/product/showproduct.php?id=21" title="胸腔闭式引流包I型" class="block text-truncate" target="_self">胸腔闭式引流包I型</a>
+                    </h4>
+                </div>
+            </li>
+            <li class="p-r-10 m-b-10" data-type="list_4">
+                <div class="card card-shadow">
+                    <figure class="card-header cover">
+                        <a href="https://show.metinfo.cn/m/mui120/363/product/showproduct.php?id=20" title="造影导管" target="_self">
+                            <img class="cover-image lazy imgloading" data-original="https://images.metinfo.cn/m/mui120/363/upload/mui120/363/thumb_src/640_480/1524646599.jpg" alt="造影导管" src="https://show.metinfo.cn/m/mui120/363/public/ui/v2/static/img/loading.gif">
+                        </a>
+                    </figure>
+                    <h4 class="card-title m-0 p-x-10 text-shadow-none font-szie-16">
+                        <a href="https://show.metinfo.cn/m/mui120/363/product/showproduct.php?id=20" title="造影导管" class="block text-truncate" target="_self">造影导管</a>
+                    </h4>
+                </div>
+            </li>
+            <li class="p-r-10 m-b-10" data-type="list_4">
+                <div class="card card-shadow">
+                    <figure class="card-header cover">
+                        <a href="https://show.metinfo.cn/m/mui120/363/product/showproduct.php?id=19" title="静脉留置针II型" target="_self">
+                            <img class="cover-image lazy imgloading" data-original="https://images.metinfo.cn/m/mui120/363/upload/mui120/363/thumb_src/640_480/1524646098.jpg" alt="静脉留置针II型" src="https://show.metinfo.cn/m/mui120/363/public/ui/v2/static/img/loading.gif">
+                        </a>
+                    </figure>
+                    <h4 class="card-title m-0 p-x-10 text-shadow-none font-szie-16">
+                        <a href="https://show.metinfo.cn/m/mui120/363/product/showproduct.php?id=19" title="静脉留置针II型" class="block text-truncate" target="_self">静脉留置针II型</a>
+                    </h4>
+                </div>
+            </li>
+        </ul>
+        <ul class="
+			    			blocks-xs-2					 	blocks-md-2 blocks-lg-4 blocks-xxl-4 no-space imagesize index-product-list tab-pane animation-scale-up" data-scale="$ui[img_h]X$ui[img_w]" id="list_3" role="tabpanel">
+            <li class="p-r-10 m-b-10" data-type="list_3">
+                <div class="card card-shadow">
+                    <figure class="card-header cover">
+                        <a href="https://show.metinfo.cn/m/mui120/363/product/showproduct.php?id=24" title="XB11B型血压表" target="_self">
+                            <img class="cover-image lazy imgloading" data-original="https://images.metinfo.cn/m/mui120/363/upload/mui120/363/thumb_src/640_480/1524626831.jpg" alt="XB11B型血压表" src="https://show.metinfo.cn/m/mui120/363/public/ui/v2/static/img/loading.gif">
+                        </a>
+                    </figure>
+                    <h4 class="card-title m-0 p-x-10 text-shadow-none font-szie-16">
+                        <a href="https://show.metinfo.cn/m/mui120/363/product/showproduct.php?id=24" title="XB11B型血压表" class="block text-truncate" target="_self">XB11B型血压表</a>
+                    </h4>
+                </div>
+            </li>
+        </ul>
+        <ul class="
+			    			blocks-xs-2					 	blocks-md-2 blocks-lg-4 blocks-xxl-4 no-space imagesize index-product-list tab-pane animation-scale-up" data-scale="$ui[img_h]X$ui[img_w]" id="list_2" role="tabpanel">
+            <li class="p-r-10 m-b-10" data-type="list_2">
+                <div class="card card-shadow">
+                    <figure class="card-header cover">
+                        <a href="https://show.metinfo.cn/m/mui120/363/product/showproduct.php?id=23" title="LD多效蒸馏水机" target="_self">
+                            <img class="cover-image lazy imgloading" data-original="https://images.metinfo.cn/m/mui120/363/upload/mui120/363/thumb_src/640_480/1524647297.jpg" alt="LD多效蒸馏水机" src="https://show.metinfo.cn/m/mui120/363/public/ui/v2/static/img/loading.gif">
+                        </a>
+                    </figure>
+                    <h4 class="card-title m-0 p-x-10 text-shadow-none font-szie-16">
+                        <a href="https://show.metinfo.cn/m/mui120/363/product/showproduct.php?id=23" title="LD多效蒸馏水机" class="block text-truncate" target="_self">LD多效蒸馏水机</a>
+                    </h4>
+                </div>
+            </li>
+        </ul>
+        <a href="https://show.metinfo.cn/m/mui120/363/product/" title="产品展示" class="more">查看更多</a>
+    </div>
+</div>
+

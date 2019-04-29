@@ -1,0 +1,29 @@
+﻿@using NopFramework.Web.Models.Contact
+@using NopFramework.Web.Framework.UI
+@model List<RecruitmentModel>
+
+
+<div class="blog_sidebar col-md-2 side-nav">
+    <div class="widget">
+        <h2 class="widget--title"><i class="glyphicon glyphicon-list"></i>在招职位</h2>
+        <ul>
+            @foreach (var recruitment in Model)
+            {
+                
+            <li>@Html.ActionLink(recruitment.Name, "JobDetails", "Contact", new { recruitmentId = recruitment.Id },"")</li>
+            }
+
+            @*<li><a href="~/Contact/JobDetails">生物工程师</a></li>
+        <li><a href="@Url.RouteUrl("NewsItems")">软件工程师</a></li>
+        <li><a href="~/Contact/JobDetails">仪器工程师</a></li>*@
+        </ul>
+    </div>
+    <div class="widget">
+        <h2 class="widget--title"><i class="glyphicon glyphicon-phone"></i>我要应聘</h2>
+        <ul>
+            <li><a href="~/Contact/SubmitOnline">在线提交信息</a></li>
+            @*<li><a href="#">发送简历到邮箱</a></li>*@
+
+        </ul>
+    </div>
+</div>

@@ -1,0 +1,37 @@
+﻿@using NopFramework.Core
+@using NopFramework.Core.Infrastructure
+@using NopFramework.Web.Framework.Themes
+@using NopFramework.Web.Framework.UI
+@using NopFramework.Core.Domains.Localization
+@{
+    /**/
+
+    ///var supportRtl = EngineContext.Current.Resolve<IWorkContext>().WorkingLanguage.Rtl;
+    var themeName = EngineContext.Current.Resolve<IThemeContext>().WorkingThemeName;
+
+    //add browser specific CSS files
+    var browser = Request.Browser;
+    Html.AppendCssFileParts(string.Format("~/Themes/{0}/Content/css/ie8.css", themeName));
+    if (browser.Browser == "IE" && browser.MajorVersion == 8)
+    {
+        Html.AppendCssFileParts(string.Format("~/Themes/{0}/Content/css/ie8.css", themeName));
+    }
+    //add main CSS file
+    //if (supportRtl)
+    //{
+    //    Html.AppendCssFileParts(string.Format("~/Themes/{0}/Content/css/styles.rtl.css", themeName));
+    //}
+    //else
+    //{
+    Html.AppendCssFileParts(string.Format("~/Themes/{0}/Content/css/styles.css", themeName));
+    //}
+
+    //add jQuery UI css file
+    Html.AppendCssFileParts("~/Content/jquery-ui-themes/smoothness/jquery-ui-1.10.3.custom.min.css");
+
+    if (browser.Browser == "IE" && browser.MajorVersion == 8)
+    {
+        Html.AddScriptParts("~/Scripts/selectivizr.min.js");
+        Html.AddScriptParts("~/Scripts/respond.min.js");
+    }
+}

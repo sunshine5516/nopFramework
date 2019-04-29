@@ -1,0 +1,99 @@
+﻿@using NopFramework.Web.Models.Message
+@using NopFramework.Web.Framework
+@model ContactUsModel
+@{
+    ViewBag.Title = "ContactUs";
+    Layout = "~/Views/Shared/_Root.cshtml";
+}
+@*@Html.Widget("home_page_top")*@
+@Html.Action("ContactMenu", "Contact")
+<div class="container">
+    @if (Model.SuccessfullySent)
+    {
+        <div class="result">
+            @Model.Result
+        </div>
+    }
+    <div class="page childpage center-1 contact-page">
+        <div class="title">
+            <strong>联系我们</strong>
+        </div>
+        <div class="col-md-4" style="margin-top:100px">
+            <ul class="">
+                <li class="contact-item">
+                    <div class="contact_item">
+                        <i class="contact_item--icon glyphicon glyphicon-earphone"></i>
+                        <h3 class="contact_item--title">联系我们</h3>
+                        <p class="contact_item--text">
+                            联系电话： <strong>021-65650169</strong>
+                            <br> 星期一-星期五, 09:00am - 18:00pm
+                        </p>
+                    </div>
+                </li>
+                <li class="contact-item">
+                    <div class="contact_item">
+                        <i class="contact_item--icon glyphicon glyphicon-envelope"></i>
+                        <h3 class="contact_item--title">邮箱</h3>
+                        <p class="contact_item--text">
+                            info@hengxinbio.com, <br />期待您的来信...
+                        </p>
+                    </div>
+                </li>
+                <li class="contact-item">
+                    <div class="contact_item">
+                        <i class="contact_item--icon glyphicon glyphicon-map-marker"></i>
+                        <h3 class="contact_item--title">地址</h3>
+                        <p class="contact_item--text">
+                            上海市杨浦区国权北路1688弄75号<br />
+                            湾谷科技园A8栋 801-802
+                        </p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="page-body col-md-8" style="margin-top:100px">
+            @using (Html.BeginForm("ContactUs", "Contact", "", FormMethod.Post, new { @class = "form-horizontal" }))
+            {
+                @*<form class="form-horizontal" role="form" action="ContactUs">*@
+                <div class="form-group">
+                    @*<label for="firstname" class="col-sm-2 control-label">姓名</label>*@
+                    @Html.LabelFor(model => model.Name, new { @class = "col-sm-2 control-label" })
+                    <div class="col-sm-10">
+                        @Html.TextBoxFor(model => model.Name, new { @class = "form-control", @placeholder = "请输入您的姓名" })
+                        @Html.ValidationMessageFor(model => model.Name)
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Email, new { @class = "col-sm-2 control-label" })
+                    <div class="col-sm-10">
+                        @Html.TextBoxFor(model => model.Email, new { @class = "form-control", @placeholder = "电子邮箱" })
+                        @Html.ValidationMessageFor(model => model.Email)
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Telephone, new { @class = "col-sm-2 control-label" })
+                    <div class="col-sm-10">
+                        @Html.TextBoxFor(model => model.Telephone, new { @class = "form-control", @placeholder = "电话" })
+                        @Html.ValidationMessageFor(model => model.Telephone)
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Content, new { @class = "col-sm-2 control-label" })
+                    <div class="col-sm-10">
+                        @Html.NopFrameowrkEditorFor(model => model.Content)
+                        @Html.ValidationMessageFor(model => model.Content)
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="buttons">
+                        <button type="submit" name="save" class="button-1 contact-us-button">
+                            提交
+                        </button>
+                    </div>
+                </div>
+                @*</form>*@
+            }
+        </div>
+    </div>
+
+</div>

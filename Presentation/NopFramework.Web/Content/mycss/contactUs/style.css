@@ -1,0 +1,11 @@
+.topinsulate {
+    background: #34495e;
+    color: #fff;
+    padding: 30px 0;
+    margin-bottom: 40px;
+}
+section.infos {
+    border: 1px solid #eee;
+    margin-bottom: 15px;
+    padding: 10px;
+}

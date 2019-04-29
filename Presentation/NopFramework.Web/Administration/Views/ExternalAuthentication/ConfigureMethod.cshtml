@@ -1,0 +1,39 @@
+﻿@using NopFramework.Admin.Models.ExternalAuthentication
+@using NopFramework.Web.Framework.UI
+@model AuthenticationMethodModel
+
+@{
+    //page title
+    ViewBag.Title ="配置" + " - " + @Model.FriendlyName;
+    //active menu item (system name)
+    Html.SetActiveMenuItemSystemName("External authentication methods");
+}
+
+<div class="content-header clearfix">
+    <h1 class="pull-left">
+        "配置" - @Model.FriendlyName
+        <small><i class="fa fa-arrow-circle-left"></i>@Html.ActionLink("返回外部授权列表", "Methods")</small>
+    </h1>
+    <div class="pull-right">
+        &nbsp;
+    </div>
+</div>
+
+<div class="content">
+    <div class="form-horizontal">
+        @if (!String.IsNullOrEmpty(Model.ConfigurationActionName))
+        {
+            @Html.Action(Model.ConfigurationActionName, Model.ConfigurationControllerName, Model.ConfigurationRouteValues);
+        }
+        else
+        {
+            <div class="panel-group">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>

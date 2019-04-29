@@ -1,0 +1,88 @@
+﻿@using NopFramework.Web.Framework.UI
+@{
+    ViewBag.Title = "Login";
+    Layout = null;
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+    Html.AppendCssFileParts("~/Content/adminLTE/AdminLTE.css");
+    Html.AppendCssFileParts("~/Content/bootstrap.min.css");
+
+    Html.AppendScriptParts("~/Scripts/adminLTE/iCheck/icheck.min.js");
+    Html.AppendScriptParts("~/Scripts/bootstrap.min.js");
+    Html.AppendCssFileParts("~/Scripts/adminLTE/iCheck/square/blue.css");
+
+}
+<style type="text/css">
+    .wrap_input {
+        position: relative;
+        border: 1px solid #d7d8da;
+        border-radius: 5px;
+        font-size: 14px;
+        color: #373d40;
+    }
+
+    .register-title {
+        font-size: 34px;
+        color: #373d40;
+        line-height: 1;
+        padding: 35px 0;
+        text-align: center;
+    }
+
+    .wrap-form {
+        padding: 30px 0 90px 0;
+        width: 1180px;
+        margin: 0 auto;
+        margin-top: 80px;
+        margin-bottom: 50px;
+        background-color: #fff;
+    }
+
+    .login-form {
+        position: relative;
+        width: 400px;
+        margin: 0 auto;
+    }
+
+    .login-page {
+        font-size: 14px;
+        height: 100%;
+        background-color: #f5f6f7;
+    }
+
+    .g-topNav {
+        position: static;
+        background-color: #fff;
+    }
+
+    .m-topNav {
+        padding: 20px 0;
+    }
+
+    .m-topNav__logo-txt {
+        font-size: 18px;
+        color: #686969;
+        vertical-align: top;
+        line-height: 30px;
+        margin-left: 10px;
+    }
+
+    .login-page {
+        font-size: 14px;
+        height: 100%;
+        background-color: #f5f6f7;
+    }
+</style>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    @Html.NopFrameworkCssFiles(this.Url, ResourceLocation.Head)
+</head>
+<body>
+
+    @RenderBody()
+
+</body>

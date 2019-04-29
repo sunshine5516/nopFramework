@@ -1,0 +1,113 @@
+﻿@using NopFramework.Web.Framework.UI
+@using NopFramework.Core.Infrastructure
+@using NopFramework.Web.Framework
+@{
+    ViewBag.Title = "SubmitOnline";
+}
+@Html.Action("ContactMenu", "Contact")
+<div class="container">
+    <div class="page childpage center-1 contact-page">
+        <div class="title">
+            <strong>在线填写</strong>
+        </div>
+        @Html.Action("JobsMenu", "Contact")
+        <div class="page-body col-md-10" style="margin-top:20px">
+            <form class="form-horizontal" role="form">
+                <div class="">
+                    <div class="form-group">
+                        <label for="firstname" class="col-sm-2 control-label">姓名</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="firstname"
+                                   placeholder="请输入您的姓名">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="email" class="col-sm-2 control-label">邮箱</label>
+                        <div class="col-sm-10">
+                            <input type="email" class="form-control" id="email"
+                                   placeholder="电子邮箱">
+                        </div>
+                    </div>
+                </div>
+                <div class="">
+                    <div class="form-group">
+                        <label for="tel" class="col-sm-2 control-label">电话</label>
+                        <div class="col-sm-10">
+                            <input type="tel" class="form-control" id="tel"
+                                   placeholder="电话">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="tel" class="col-sm-2 control-label">职位</label>
+
+                        <div class="col-md-8">
+                            <select class="form-control">
+                                <option value="">默认选择</option>
+                                <option value="">仪器工程师</option>
+                                <option value="">芯片工程师</option>
+                                <option value="">软件工程师</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="tel" class="col-sm-2 control-label">工作性质</label>
+
+                        <div class="col-md-8">
+                            <select class="form-control">
+                                <option value="">默认选择</option>
+                                <option value="">兼职</option>
+                                <option value="">全职</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="tel" class="col-sm-2 control-label">期望薪资</label>
+                        <div class="col-sm-10">
+                            <div class="input-group">
+                                <input type="text" class="form-control">
+                                <span class="input-group-addon">.00</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="tel" class="col-sm-2 control-label">在职状态</label>
+                        <div class="col-md-8">
+                            <select class="form-control">
+                                <option value="">默认选择</option>
+                                <option value="">在职</option>
+                                <option value="">离职</option>
+                            </select>
+                        </div>
+                    </div>
+
+
+                </div>
+
+
+                <div class="form-group">
+                    <label for="name" class="col-sm-2 control-label">个人简介</label>
+                    <div class="col-sm-10">
+                        <textarea class="form-control" rows="3" placeholder="请输入内容"></textarea>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="name" class="col-sm-2 control-label">工作经验</label>
+                    <div class="col-sm-10">
+                        <textarea class="form-control" rows="3" placeholder="请输入内容"></textarea>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="buttons">
+                        <input type="submit" name="send-email" class="button-1 contact-us-button" value="提交" />
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</div>
+

@@ -1,0 +1,147 @@
+﻿@using NopFramework.Web.Framework.UI
+@using NopFramework.Core.Infrastructure
+@{
+    var defaultGridPageSize = EngineContext.Current.Resolve<NopFramework.Core.Domains.Common.AdminAreaSettings>().DefaultGridPageSize;
+    var gridPageSizes = EngineContext.Current.Resolve<NopFramework.Core.Domains.Common.AdminAreaSettings>().GridPageSizes;
+
+    ViewBag.Title = "挂件管理";
+    //active menu item (system name)
+    Html.SetActiveMenuItemSystemName("Widgets");
+}
+@Html.AntiForgeryToken()
+<div class="content-header clearfix">
+    <h1 class="pull-left">
+        挂件管理
+    </h1>
+    <div class="pull-right">
+        &nbsp;
+    </div>
+</div>
+<div class="content">
+    <div class="form-horizontal">
+        <div class="panel-group">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <div id="widgets-grid"></div>
+                    <script>
+                        $(document).ready(function () {
+                            $("#widgets-grid").kendoGrid({
+                                dataSource: {
+                                    type: "json",
+                                    transport: {
+                                        read: {
+                                            url: "@Html.Raw(Url.Action("AllWidgets", "Widget"))",
+                                            type: "POST",
+                                            dataType: "json",
+                                            data: addAntiForgeryToken
+                                        },
+                                        update: {
+                                            url: "@Html.Raw(Url.Action("UpdateWidget", "Widget"))",
+                                            type: "POST",
+                                            dataType: "json",
+                                            data: addAntiForgeryToken
+                                        }
+                                    },
+                                    schema: {
+                                        data: "Data",
+                                        total: "Total",
+                                        errors: "Errors",
+                                        model: {
+                                            id:"SystemName",
+                                            fields: {
+                                                FriendlyName: { editable: false, type: "string" },
+                                                SystemName: { editable: false, type: "string" },
+                                                DisplayOrder: { editable: true, type: "number" },
+                                                IsActive: { editable: true, type: "boolean" }
+                                            }
+                                        }
+                                    },
+                                    requestEnd: function (e) {
+                                        if (e.type == "update") {
+                                            this.read();
+                                        }
+                                    },
+                                    error: function (e) {
+                                        display_kendoui_grid_error(e);
+                                        // Cancel the changes
+                                        this.cancelChanges();
+                                    },
+                                    pageSize: @(defaultGridPageSize),
+                                    serverPaging: true,
+                                    serverFiltering: true,
+                                    serverSorting: true
+                                },
+                                pageable: {
+                                    refresh: true,
+                                    pageSizes: [@(gridPageSizes)],
+                                    messages: {
+                                        display: "显示{0}-{1}条，共{2}条",
+                                        empty: "没有数据",
+                                        page: "页",
+                                        of: "/ {0}",
+                                        itemsPerPage: "条/页",
+                                        first: "第一页",
+                                        previous: "前一页",
+                                        next: "下一页",
+                                        last: "最后一页",
+                                        refresh: "刷新"
+                                    }
+                                },
+                                scrollable: false,
+                                editable: {
+                                    confirmation: "确认删除",
+                                    mode: "inline"
+                                },
+                                columns: [
+                                    {
+                                        field: "FriendlyName",
+                                        title: "友好名称",
+                                        width:300
+                                    },
+                                    {
+                                        field: "SystemName",
+                                        title: "系统名称",
+                                        width:300
+                                    },
+                                    {
+                                        field: "DisplayOrder",
+                                        title: "显示序号",
+                                        format: "{0:0}",
+                                        width: 100
+                                    },
+                                    {
+                                        field: "IsActive",
+                                        title: "是否启用",
+                                        width: 100,
+                                        headerAttributes: { style: "text-align:center" },
+                                        attributes: { style: "text-align:center" },
+                                        template: '# if(IsActive) {# <i class="fa fa-check true-icon"></i> #} else {# <i class="fa fa-close false-icon"></i> #} #'
+                                    },
+                                    {
+                                        field: "SystemName",
+                                        title: "配置",
+                                        width: 150,
+                                        template: '<a href="ConfigureWidget?systemName=#=SystemName#">配置</a>'
+                                    },
+                                    {
+                                    command: {
+                                        name: "edit",
+                                        text: {
+                                            edit: "编辑",
+                                            update: "更新",
+                                            cancel: "取消"
+                                        }
+                                    },
+                                    title: "编辑",
+                                        width: 150
+                                    }
+                                ]
+                            });
+                        });
+                    </script>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

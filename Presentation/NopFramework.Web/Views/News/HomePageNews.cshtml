@@ -1,0 +1,35 @@
+﻿
+@{
+    ViewBag.Title = "HomePageNews";
+}
+<div class="container">
+
+    <div class="news-list-homepage center-1">
+        <div class="title">
+            <strong>新闻</strong>
+        </div>
+        <div class="news-items">
+            @foreach (var item in Model.NewsItems)
+            {
+                <div class="news-item">
+                    <div class="news-head">
+                        <a class="news-title" href="@Url.RouteUrl("NewsItem", new { SeName = item.Title })">@item.Title</a>
+                        <span class="news-date">-@item.CreatedOn.ToString("D")</span>
+                    </div>
+                    <div class="news-body">
+                        @item.Title
+                    </div>
+                    <div class="buttons">
+                        <a href="@Url.RouteUrl("NewsItem", new { SeName = item.Title })" class="read-more">详情</a>
+                       @*@Html.ActionLink("详情", "NewsItem", "News", new { newsItemId = item.Id }, new { @class = "read-more" })*@
+                    </div>
+                </div>
+            }
+        </div>
+        <div class="view-all">
+            <a href="@Url.RouteUrl("NewsItems")">查看所有</a>
+        </div>
+    </div>
+</div>
+
+

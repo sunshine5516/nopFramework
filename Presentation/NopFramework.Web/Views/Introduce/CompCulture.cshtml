@@ -1,0 +1,112 @@
+﻿@using NopFramework.Web.Models.Introduce
+@model TermModel
+@{
+    ViewBag.Title = "CompCulture";
+    Layout = "~/Views/Shared/_Root.cshtml";
+}
+@Html.Action("AboutUsMenu", "Introduce")
+<div class="container">
+    <div class="page childpage center-1 contact-page">
+        <div class="title">
+            @*<strong>企业文化</strong>*@
+        </div>
+        <div class="row">
+            <div class="col-sm-6 col-sm-offset-3 text-center m-t-50">
+                <p class="topic-title">
+                    @Model.Name
+                </p>
+            </div>
+        </div>
+        <section class="met-editor clearfix">
+            <p>
+                <div class="head-describe text-center">
+                    @*经营理念：公司本着创新的精神和诚信的态度，积极需求同业内精英的合作。
+                        <br />
+                        企业文化：客户至上、诚实守信、艰苦奋斗、团队合作、开放创新*@
+                    @Html.Raw(Model.FullDescription)
+                </div>
+            </p>
+
+            @*<table class="table-bordered table-hover" data-tablesaw-mode="swipe" data-tablesaw-sortable="">
+                <tbody>
+
+                    @if (Model.TermPictureModels.Count > 0)
+                    {
+                        foreach (var image in Model.TermPictureModels)
+                        {
+                            <tr class="">
+                                <td>
+                                    <p>
+                                        <span>
+                                            <br>
+                                        </span>
+                                    </p>
+                                    <p style="text-align:center">
+                                        <img src="@image.ImageUrl" data-width="480" width="480" data-height="360" height="360" title="网站关键词" alt="网站关键词">
+                                    </p>
+                                    <p>
+                                        <span>
+                                            <br>
+                                        </span>
+                                    </p>
+                                </td>
+                                <td>
+                                    <p>
+                                        <span>
+                                            <br>
+                                        </span>
+                                    </p>
+                                    <p style="text-align:center">
+                                        <img src="https://images.metinfo.cn/m/mui120/363/upload/mui120/363/201804/1524709119136215.jpg" data-width="480" width="480" data-height="360" height="360" title="网站关键词" alt="网站关键词">
+                                    </p>
+                                    <p>
+                                        <span>
+                                            <br>
+                                        </span>
+                                    </p>
+                                </td>
+                            </tr>
+                        }
+                    }
+
+
+                    <tr>
+                        <td>
+                            <p>
+                                <span>
+                                    <br>
+                                </span>
+                            </p>
+                            <p style="text-align:center">
+                                <img src="https://images.metinfo.cn/m/mui120/363/upload/mui120/363/201804/1524709146466672.jpg" data-width="480" width="480" data-height="360" height="360" title="网站关键词" alt="网站关键词">
+                            </p>
+                            <p>
+                                <span>
+                                    <br>
+                                </span>
+                            </p>
+                        </td>
+                        <td>
+                            <p>
+                                <span>
+                                    <br>
+                                </span>
+                            </p>
+                            <p style="text-align:center">
+                                <img src="https://images.metinfo.cn/m/mui120/363/upload/mui120/363/201804/1524709164189722.jpg" data-width="480" width="480" data-height="360" height="360" title="网站关键词" alt="网站关键词">
+                            </p>
+                            <p>
+                                <span>
+                                    <br>
+                                </span>
+                            </p>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <p>
+                <br>
+            </p>*@
+        </section>
+    </div>
+</div>

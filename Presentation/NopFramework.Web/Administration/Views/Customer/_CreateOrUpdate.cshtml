@@ -1,0 +1,191 @@
+﻿@using NopFramework.Admin.Models.Customers
+@using NopFramework.Web.Framework
+@model CustomerModel
+
+@Html.ValidationSummary(true)
+@Html.HiddenFor(model => model.Id)
+@*@Html.HiddenFor(model => model.Id)*@
+<div class="content">
+    <div class="form-horizontal">
+        <div id="customer-edit" class="nav-tabs-custom">
+            <ul class="nav nav-tabs">
+                @Html.RenderBootstrapTabHeader("tab-info", "客户信息", true)
+                @Html.RenderBootstrapTabHeader("tab-infow", "客户信息2")
+                @Html.RenderBootstrapTabHeader("tab-infowe", "客户信息3")
+            </ul>
+            <div class="tab-content">
+                @Html.RenderBootstrapTabContent("tab-info", @TabInfo(), true)
+                @Html.RenderBootstrapTabContent("tab-infow", @TabInfo2())
+            </div>
+        </div>
+    </div>
+</div>
+
+@helper TabInfo()
+    {
+
+        <div class="panel-group">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <div class="form-group">
+                        <div class="col-md-3">
+                            @Html.NopFrameowrkLabelFor(model => model.UserName)
+                        </div>
+                        <div class="col-md-9">
+                            @Html.NopFrameowrkEditorFor(model => model.UserName)
+                            @Html.ValidationMessageFor(model => model.UserName)
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-3">
+                            @Html.NopFrameowrkLabelFor(model => model.Email)
+                        </div>
+                        <div class="col-md-9">
+                            @Html.NopFrameowrkEditorFor(model => model.Email)
+                            @Html.ValidationMessageFor(model => model.Email)
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-3">
+                            @Html.NopFrameowrkLabelFor(model => model.Password)
+                        </div>
+                        <div class="col-md-9">
+                            @Html.TextBoxFor(model => model.Password, new { autocomplete = "off", @class = "text-box single-line form-control" })
+                            <div class="input-group-btn">
+                                @if (Model.Id > 0)
+                                {
+                                    <button type="submit" name="changepassword" class="btn btn-info">
+                                        修改密码
+                                    </button>
+                                }
+                            </div>
+                            @Html.ValidationMessageFor(model => model.Password)
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-3">
+                            @Html.NopFrameowrkLabelFor(model => model.SelectedCustomerRoleIds)
+                        </div>
+                        <div class="col-md-9">
+                            @Html.EditorFor(model => model.SelectedCustomerRoleIds, new { SelectList = Model.AvailableCustomerRoles })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-3">
+
+                            @Html.NopFrameowrkLabelFor(model => model.Gender)
+                        </div>
+                        <div class="col-md-9">
+                            <div class="row">
+                                <div class="col-md-1">
+                                    <div class="radio">
+                                        <label>
+                                            @Html.RadioButton("Gender", "M", (Model.Gender == "M"), new { id = "Gender_Male" })
+                                            男
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-md-11">
+                                    <div class="radio">
+                                        <label>
+                                            @Html.RadioButton("Gender", "F", (Model.Gender == "F"), new { id = "Gender_Female" })
+                                            女
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            @*@Html.ValidationMessageFor(model => model.SelectedCustomerRoleIds)*@
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <div class="col-md-3">
+                            @Html.NopFrameowrkLabelFor(model => model.FirstName)
+                        </div>
+                        <div class="col-md-9">
+                            @Html.NopFrameowrkEditorFor(model => model.FirstName)
+                            @Html.ValidationMessageFor(model => model.FirstName)
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-3">
+                            @Html.NopFrameowrkLabelFor(model => model.LastName)
+                        </div>
+                        <div class="col-md-9">
+                            @Html.NopFrameowrkEditorFor(model => model.LastName)
+                            @Html.ValidationMessageFor(model => model.LastName)
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-3">
+                            @Html.NopFrameowrkLabelFor(model => model.DateOfBirth)
+                        </div>
+                        <div class="col-md-9">
+                            @Html.NopFrameowrkEditorFor(model => model.DateOfBirth)
+                            @Html.ValidationMessageFor(model => model.DateOfBirth)
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-3">
+                            @Html.NopFrameowrkLabelFor(model => model.Active)
+                        </div>
+                        <div class="col-md-9">
+                            @Html.NopFrameowrkEditorFor(model => model.Active)
+                            @Html.ValidationMessageFor(model => model.Active)
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-3">
+                            @Html.NopFrameowrkLabelFor(model => model.LastIpAddress)
+                        </div>
+                        <div class="col-md-9">
+                            @Html.DisplayFor(model => model.LastIpAddress)
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-3">
+                            @Html.NopFrameowrkLabelFor(model => model.CreatedOn)
+                        </div>
+                        <div class="col-md-9">
+                            @Html.DisplayFor(model => model.CreatedOn)
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-3">
+                            @Html.NopFrameowrkLabelFor(model => model.LastActivityDate)
+                        </div>
+                        <div class="col-md-9">
+                            @Html.DisplayFor(model => model.LastActivityDate)
+
+                        </div>
+                    </div>
+                    @if (Model.Id > 0 && !String.IsNullOrEmpty(Model.LastVisitedPage))
+                    {
+                        <div class="form-group">
+                            <div class="col-md-3">
+                                @Html.NopFrameowrkLabelFor(model => model.LastVisitedPage)
+                            </div>
+                            <div class="col-md-9">
+                                @Html.DisplayFor(model => model.LastVisitedPage)
+
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+
+        </div>
+}
+
+@helper TabInfo2()
+    {
+        <div>
+            <input type="button" value="clickMe" />
+        </div>
+}

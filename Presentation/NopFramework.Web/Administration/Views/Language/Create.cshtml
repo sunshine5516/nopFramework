@@ -1,0 +1,30 @@
+﻿@using NopFramework.Admin.Models.Localization
+@using NopFramework.Web.Framework.ViewEngines.Razor
+@using NopFramework.Web.Framework.Localization
+@model LanguageModel
+@{
+    ViewBag.Title = "添加新的语言";
+    Html.SetActiveMenuItemSystemName("Languages");
+}
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div class="content-header clearfix">
+        <h1 class="pull-left">
+            @T("Admin.Configuration.Languages.AddNew")            
+            添加新的语言
+            <small><i class="fa fa-arrow-circle-left"></i>@Html.ActionLink("返回语言列表", "List")</small>
+        </h1>
+        <div class="pull-right">
+            <button type="submit" name="save" class="btn bg-blue">
+                <i class="fa fa-floppy-o"></i>
+                保存
+            </button>
+            <button type="submit" name="save-continue" class="btn bg-blue">
+                <i class="fa fa-floppy-o"></i>
+                保存并继续编辑
+            </button>
+        </div>
+    </div>
+    @Html.Partial("_CreateOrUpdate", Model)
+}

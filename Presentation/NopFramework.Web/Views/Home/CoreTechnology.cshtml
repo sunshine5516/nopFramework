@@ -1,0 +1,113 @@
+﻿
+@{
+    ViewBag.Title = "CoreTechnology";
+}
+
+<!----------Countup-section end------>
+<section class="bg-default section-bottom-pad-40">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6 col-sm-offset-3 m-t-50">
+                <h2 class="head-h2-name heading underline">核心技术</h2>
+                <p class="text-center head-describe">
+                    我们所擅长的技术
+                </p>
+            </div>
+        </div>
+        <div class="row m-t-50">
+            <div class="col-sm-4">
+                <img src="~/Content/Images/Thumbs/default-image_100.png" alt="img" class="img-responsive center-block">
+            </div>
+            <div class="col-sm-4">
+                <ul class="list-unstyled">
+                    <li class="link_transition">
+                        @Html.ActionLink("数据分析", "TechnologyItem", "Introduce", "", new { @class = "fa fa-caret-right" })
+                        @*<a href="services.html">
+                            <i class="fa fa-caret-right"></i><i class="fa fa-caret-right"></i> &nbsp;数据分析
+                        </a>*@
+                    </li>
+                    <li class="link_transition  section-top-10">
+                        @Html.ActionLink("细胞生物检测", "TechnologyItem", "Introduce", "", new { @class = "fa fa-caret-right" })
+                    </li>
+                    <li class="link_transition  section-top-10">
+                        @Html.ActionLink("芯片制作", "TechnologyItem", "Introduce", "", new { @class = "fa fa-caret-right" })
+                    </li>
+                    <li class="link_transition  section-top-10">
+                        @Html.ActionLink("PCR生物仪器", "TechnologyItem", "Introduce", "", new { @class = "fa fa-caret-right" })
+                    </li>
+                    <li class="link_transition  section-top-10">
+                        @Html.ActionLink("激光测序仪", "TechnologyItem", "Introduce", "", new { @class = "fa fa-caret-right" })
+                    </li>
+                    <li class="link_transition  section-top-10">
+                        @Html.ActionLink("细胞检测", "TechnologyItem", "Introduce", "", new { @class = "fa fa-caret-right" })
+                    </li>
+                </ul>
+            </div>
+            <div class="col-sm-4">
+                <div id="Services_Carousel" class="carousel slide" data-ride="carousel">
+                    <ol class="carousel-indicators">
+                        <li data-target="#Services_Carousel" data-slide-to="0" class="active"></li>
+                        <li data-target="#Services_Carousel" data-slide-to="1"></li>
+                        <li data-target="#Services_Carousel" data-slide-to="2"></li>
+                    </ol>
+                    <div class="carousel-inner">
+                        <div class="item active" data-interval="3000">
+                            <figure class="imghvr-zoom-in">
+                                <img src="~/Content/Images/product/new_product1.png"alt="people" class="img-responsive">
+                                <figcaption>
+                                    <div class="text-center">
+                                        <h6 class="text-white"> Web Development</h6>
+                                        <p class="text-white">
+                                            Lorem ipsum dolor sit amet <br />consectetuer adipiscing elit..
+                                        </p>
+                                        <a href="services.html" class="btn btn-success">Read more</a>
+                                    </div>
+                                </figcaption>
+                            </figure>
+                        </div>
+                        <div class="item" data-interval="3000">
+                            <figure class="imghvr-zoom-in">
+                                <img src="~/Content/Images/product/new_product2.png" alt="people" class="img-responsive">
+                                <figcaption>
+                                    <div class="text-center">
+                                        <h6 class="text-white">Big Data & Analytics </h6>
+                                        <p class="text-white">
+                                            Lorem ipsum dolor sit amet <br />consectetuer adipiscing elit..
+                                        </p>
+                                        <a href="services.html" class="btn btn-success">Read more</a>
+                                    </div>
+                                </figcaption>
+                            </figure>
+                        </div>
+                        <div class="item" data-interval="3000">
+                            <figure class="imghvr-zoom-in">
+                                <img src="~/Content/Images/product/new_product1.png" alt="people" class="img-responsive">
+                                <figcaption>
+                                    <div class="text-center">
+                                        <h6 class="text-white">IT Services </h6>
+                                        <p class="text-white">
+                                            Lorem ipsum dolor sit amet <br />consectetuer adipiscing elit..
+                                        </p>
+                                        <a href="services.html" class="btn btn-success">Read more</a>
+                                    </div>
+                                </figcaption>
+                            </figure>
+                        </div>
+                    </div>
+                    <!-- Left and right controls -->
+                    <a class="left carousel-control" href="#Services_Carousel" role="button" data-slide="prev">
+                        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="right carousel-control" href="#Services_Carousel" role="button" data-slide="next">
+                        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
+<!-------------Services Section End------------>
+

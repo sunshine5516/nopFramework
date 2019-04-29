@@ -1,0 +1,45 @@
+﻿@using NopFramework.Web.Models.Catalog
+@using NopFramework.Web.Framework.UI
+@model List<ProductDetailsModel>
+@{
+    ViewBag.Title = "HomeProduct";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-6  col-sm-offset-3 m-t-50">
+            <h2 class="head-h2-name heading underline text-center">产品展示</h2>
+            <p class="text-center head-describe">
+                全自动化 微量化 便捷省时省力
+            </p>
+        </div>
+    </div>
+    <div id="portfolio" class="row no-gutter section-top-25">
+        @foreach (var product in Model)
+        {
+            <div class="isotope-item awards col-sm-6 col-md-4 section-top-25">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <figure class="imghvr-slide-up img-responsive">
+                            <img src="@product.DefaultPictureModel.ImageUrl" style="width:278px;height:208px" alt="gallery3">
+                            <figcaption>
+                                <div class="text-center hoveicon_plus">
+                                    <a class="fa-2x text-white" href="@Url.RouteUrl("ProductItem", new { SeName = product.Name })">@product.Name</a>
+                                    @*@Html.ActionLink(product.Name, "ProductDetail", "Product", new { productId = product.Id }, new { @class = "fa-2x text-white" })*@
+                                </div>
+                            </figcaption>
+
+                        </figure>
+                        <h4>
+                            @product.Name
+                        </h4>
+
+                    </div>
+                </div>
+            </div>
+        }
+
+
+    </div>
+</div>
+

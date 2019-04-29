@@ -1,0 +1,181 @@
+﻿
+@{
+    //page title
+    ViewBag.Title = "语言管理";
+    //active menu item (system name)
+    Html.SetActiveMenuItemSystemName("Languages");
+}
+
+@Html.AntiForgeryToken()
+<div class="content-header clearfix">
+    <h1 class="pull-left">
+        语言管理
+    </h1>
+    <div class="pull-right">
+        <a href="@Url.Action("Create")" class="btn bg-blue">
+            <i class="fa fa-plus-square"></i>
+            添加
+        </a>
+        <button type="button" id="delete-selected" class="btn bg-red">
+            <i class="fa fa-trash-o"></i>
+            删除所选
+        </button>
+    </div>
+</div>
+<div class="content">
+    <div class="form-horizontal">
+        <div class="panel-group">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <div id="languages-grid"></div>
+
+                    <script>
+                        $(document).ready(function() {
+                            $("#languages-grid").kendoGrid({
+                                dataSource: {
+                                    type: "json",
+                                    transport: {
+                                        read: {
+                                            url: "@Html.Raw(Url.Action("List", "Language"))",
+                                            type: "POST",
+                                            dataType: "json",
+                                            data: addAntiForgeryToken
+                                        }
+                                    },
+                                    schema: {
+                                        data: "Data",
+                                        total: "Total",
+                                        errors: "Errors"
+                                    },
+                                    error: function(e) {
+                                        display_kendoui_grid_error(e);
+                                        // Cancel the changes
+                                        this.cancelChanges();
+                                    },
+                                    serverPaging: true,
+                                    serverFiltering: true,
+                                    serverSorting: true
+                                },
+                                pageable: {
+                                    refresh: true,
+                                    numeric: false,
+                                    previousNext: false,
+                                    info: false
+                                },
+                                editable: {
+                                    confirmation: "确认删除",
+                                    mode: "inline"
+                                },
+                                scrollable: false,
+                                columns: [
+                                    {
+                                        field: "Id",
+                                        headerTemplate: "<input id='mastercheckbox' type='checkbox'/>",
+                                        headerAttributes: { style: "text-align:center" },
+                                        attributes: { style: "text-align:center" },
+                                        template: "<input type='checkbox' value='#=Id#' class='checkboxGroups'/>",
+                                        width: 50
+                                    },
+                                {
+                                    field: "Name",
+                                    title: "名称"
+                                }, {
+                                    field: "FlagImageFileName",
+                                    title: "国旗",
+                                    width: 100,
+                                    attributes: { style: "text-align:center" },
+                                    template: '<img src="@Url.Content("~/Content/Images/flags/")#=FlagImageFileName#" />'
+                                }, {
+                                    field: "LanguageCulture",
+                                    title: "语言文化",
+                                    width: 200
+                                }, {
+                                    field: "DisplayOrder",
+                                    title: "显示顺序",
+                                    width: 150
+                                }, {
+                                    field: "Published",
+                                    title: "已发布",
+                                    width: 100,
+                                    headerAttributes: { style: "text-align:center" },
+                                    attributes: { style: "text-align:center" },
+                                    template: '# if(Published) {# <i class="fa fa-check true-icon"></i> #} else {# <i class="fa fa-close false-icon"></i> #} #'
+                                }, {
+                                    field: "Id",
+                                    title: "编辑",
+                                    width: 100,
+                                    template: '<a href="Edit/#=Id#">编辑</a>'
+                                    }
+                                ]
+                            });
+                        });
+                    </script>
+                    <script>
+                        var selectedIds = [];
+                            $(document).ready(function () {
+                                $("#delete-selected").click(function(e){
+                                    e.preventDefault();
+                                    var postData = {
+                                        selectedIds: selectedIds
+                                    };
+                                    addAntiForgeryToken(postData);
+                                    $.ajax({
+                                        cache: false,
+                                        type: "POST",
+                                        url: "@(Url.Action("DeleteSelected", "Language"))",
+                                        data: postData,
+                                        complete: function(data) {
+                                            //reload grid
+                                            var grid = $('#languages-grid').data('kendoGrid');
+                                            grid.dataSource.read();
+                                        },
+                                        error: function(xhr, ajaxOptions, thrownError) {
+                                            alert(thrownError);
+                                        },
+                                        traditional: true
+                                    });
+                                    return false;
+                                });
+
+                                $('#mastercheckbox').click(function () {
+                                    var $check = $(this);
+                                   // alert($check.val());
+                                    $('.checkboxGroups').attr('checked', $(this).is(':checked')).change();
+                                    //alert(selectedIds.length);
+                                });
+
+                                //checkboxes.
+                                $('#languages-grid').on('change', 'input[type=checkbox][id!=mastercheckbox]', function (e) {
+                                    var $check = $(this);
+                                    if ($check.is(":checked") == true) {
+                                        var checked = jQuery.inArray($check.val(), selectedIds);
+                                        if (checked == -1) {
+                                            //add id to selectedIds.
+                                            selectedIds.push($check.val());
+                                        }
+                                    }
+                                    else {
+                                        var checked = jQuery.inArray($check.val(), selectedIds);
+                                        if (checked > -1) {
+                                            //remove id from selectedIds.
+                                            selectedIds = $.grep(selectedIds, function (item, index) {
+                                                return item != $check.val();
+                                            });
+                                        }
+                                    }
+                                    updateMasterCheckbox();
+                                });
+                            });
+
+                            function updateMasterCheckbox() {
+                                var numChkBoxes = $('#languages-grid input[type=checkbox][id!=mastercheckbox]').length;
+                                var numChkBoxesChecked = $('#languages-grid input[type=checkbox][id!=mastercheckbox]:checked').length;
+                                $('#mastercheckbox').attr('checked', numChkBoxes == numChkBoxesChecked && numChkBoxes > 0);
+                            }
+                    </script>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

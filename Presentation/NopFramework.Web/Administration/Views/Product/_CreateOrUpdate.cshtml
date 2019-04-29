@@ -1,0 +1,105 @@
+﻿@using NopFramework.Web.Framework.UI
+@using NopFramework.Web.Framework
+@using NopFramework.Admin.Models.Catalog
+@model ProductModel
+@Html.ValidationSummary(false)
+@Html.HiddenFor(model => model.Id)
+@*@Html.HiddenFor(model => model.Id)*@
+<div class="content">
+    <div class="form-horizontal">
+        <div class="nav-tabs-custom">
+            <ul class="nav nav-tabs">
+                @Html.RenderBootstrapTabHeader("tab-info", "基本信息", true)
+                @*@Html.RenderBootstrapTabHeader("tab-pictures", "图片")*@
+            </ul>
+            <div class="tab-content">
+                @Html.RenderBootstrapTabContent("tab-info", @TabInfo(), true)
+                @*@Html.RenderBootstrapTabContent("tab-pictures", @TabPictures())*@
+            </div>
+        </div>
+
+
+    </div>
+</div>
+@*save selected tab name*@
+<input type="hidden" id="selected-tab-name" name="selected-tab-name" value="@(Html.GetSelectedTabName())">
+
+@helper TabInfo()
+{
+    /**/
+    <div class="panel-group">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <div class="form-group">
+                    <div class="col-md-3">
+                        @Html.NopFrameowrkLabelFor(model => model.Name)
+                    </div>
+                    <div class="col-md-9">
+                        @Html.NopFrameowrkEditorFor(model => model.Name)
+                        @Html.ValidationMessageFor(model => model.Name)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-3">
+                        @Html.NopFrameowrkLabelFor(model => model.ShortDescription)
+                    </div>
+                    <div class="col-md-9">
+                        @Html.TextAreaFor(model => model.ShortDescription, new { @class = "form-control", @rows = "5" })
+                        @Html.ValidationMessageFor(model => model.ShortDescription)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-3">
+                        @Html.NopFrameowrkLabelFor(model => model.Parameters)
+                    </div>
+                    <div class="col-md-9">
+                        @Html.TextAreaFor(model => model.Parameters, new { @class = "form-control", @rows = "5" })
+                        @Html.ValidationMessageFor(model => model.Parameters)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-3">
+                        @Html.NopFrameowrkLabelFor(model => model.ShowOnHomePage)
+                    </div>
+                    <div class="col-md-9">
+                        @Html.NopFrameowrkEditorFor(model => model.ShowOnHomePage)
+                        @Html.ValidationMessageFor(model => model.ShowOnHomePage)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-3">
+                        @Html.NopFrameowrkLabelFor(model => model.ShortDescription)
+                    </div>
+                    <div class="col-md-9">
+                        @Html.NopFrameowrkEditorFor(model => model.ShortDescription)
+                        @Html.ValidationMessageFor(model => model.ShortDescription)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-3">
+                        @Html.NopFrameowrkLabelFor(model => model.FullDescription)
+                    </div>
+                    <div class="col-md-9">
+                        @Html.EditorFor(model => model.FullDescription, "RichEditor")
+                        @Html.ValidationMessageFor(model => model.FullDescription)
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    @Html.Partial("_CreateOrUpdate.Pictures", Model)
+}
+@helper TabPictures()
+{
+    /**/
+
+    @Html.Partial("_CreateOrUpdate.Pictures", Model)
+
+
+}

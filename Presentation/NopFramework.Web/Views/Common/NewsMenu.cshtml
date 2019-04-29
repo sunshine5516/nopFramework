@@ -1,0 +1,32 @@
+﻿<div class="blog_sidebar col-md-2 side-nav">
+    <div class="widget">
+        <h2 class="widget--title"><i class="glyphicon glyphicon-cloud"></i>最新资讯</h2>
+        <ul>
+            <li class="active"><a href="#">公司报道</a></li>
+            <li><a href="#">行业资讯</a></li>
+            <li><a href="@Url.RouteUrl("NewsItems")">新闻动态</a></li>
+        </ul>
+    </div>
+    <div class="widget">
+        <h2 class="widget--title"><i class="glyphicon glyphicon-globe"></i>热门动态</h2>
+        <ul>
+            <li><a href="#">融资八千万</a></li>
+            <li><a href="#">行业资讯</a></li>
+            <li><a href="#">最新技术</a></li>
+        </ul>
+    </div>
+</div>
+<script type="text/javascript">
+    $("li").click(function (e) {
+        var customerId = $(this).attr("id");
+
+    });
+</script>
+
+<script type="text/javascript">
+    $("a").click(function (e) {
+        //var customerId = $(this).addClass("blue");
+        //$("a").removeClass("active");
+        $(this).addClass("active");
+    });
+</script>

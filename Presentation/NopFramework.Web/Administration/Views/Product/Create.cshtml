@@ -1,0 +1,30 @@
+﻿@using NopFramework.Admin.Models.Catalog
+@using NopFramework.Web.Framework.UI
+@model ProductModel
+@{
+    ViewBag.Title = "添加新的商品";
+    Html.SetActiveMenuItemSystemName("Products");
+}
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div class="content-header clearfix">
+        <h1 class="pull-left">
+            添加商品
+            <small><i class="fa fa-arrow-circle-left"></i>@Html.ActionLink("返回商品列表", "List")</small>
+        </h1>
+        <div class="pull-right">
+            <button type="submit" name="save" class="btn bg-blue">
+                <i class="fa fa-floppy-o"></i>
+                保存
+            </button>
+            <button type="submit" name="save-continue" class="btn bg-blue">
+                <i class="fa fa-floppy-o"></i>
+                保存并继续编辑
+            </button>
+        </div>
+    </div>
+    @Html.Partial("_CreateOrUpdate", Model)
+}
+
+

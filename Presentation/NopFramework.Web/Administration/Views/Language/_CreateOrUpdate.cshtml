@@ -1,0 +1,317 @@
+﻿@using NopFramework.Admin.Models.Localization
+@model LanguageModel
+
+@Html.ValidationSummary(true)
+@Html.HiddenFor(model => model.Id)
+<div class="content">
+    <div class="form-horizontal">
+        <div class="nav-tabs-custom">
+            <ul class="nav nav-tabs">
+                @Html.RenderBootstrapTabHeader("tab-info", "信息", true)
+                @Html.RenderBootstrapTabHeader("tab-pictures", "语言包")
+            </ul>
+            <div class="tab-content">
+                @Html.RenderBootstrapTabContent("tab-info", @TabInfo(), true)
+                @Html.RenderBootstrapTabContent("tab-pictures", @TabResources())
+            </div>
+        </div>
+
+
+    </div>
+</div>
+@*@Html.HiddenFor(model => model.Id)*@
+@helper TabInfo()
+{
+    /**/
+    <script type="text/javascript">
+        function toggleFlags() {
+            $('#pnlAllFlags').toggle();
+            if ($('#pnlAllFlags').css('display') == 'none') {
+                $('#displayAllFlags').html('显示');
+            } else {
+                $('#displayAllFlags').html('隐藏');
+            }
+        }
+    </script>
+    <div class="content">
+        <div class="form-horizontal">
+            <div class="panel-group">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <div class="form-group">
+                            <div class="col-md-3">
+                                @Html.NopFrameowrkLabelFor(model => model.Name)
+                            </div>
+                            <div class="col-md-9">
+                                @Html.NopFrameowrkEditorFor(model => model.Name)
+                                @Html.ValidationMessageFor(model => model.Name)
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-3">
+                                @Html.NopFrameowrkLabelFor(model => model.LanguageCulture)
+                            </div>
+                            <div class="col-md-9">
+                                @{
+                                    var cultures = System.Globalization.CultureInfo.GetCultures(System.Globalization.CultureTypes.SpecificCultures)
+                                        .OrderBy(x => x.EnglishName)
+                                        .Select(x => new SelectListItem
+                                        {
+                                            Value = x.IetfLanguageTag,
+                                            Text = string.Format("{0}. {1}", x.EnglishName, x.IetfLanguageTag)
+                                        });
+                                }
+                                @Html.NopFramoworkDropDownListFor(model => model.LanguageCulture, cultures)
+                                @Html.ValidationMessageFor(model => model.LanguageCulture)
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-3">
+                                @Html.NopFrameowrkLabelFor(model => model.UniqueSeoCode)
+                            </div>
+                            <div class="col-md-9">
+                                @Html.NopFrameowrkEditorFor(model => model.UniqueSeoCode)
+                                @Html.ValidationMessageFor(model => model.UniqueSeoCode)
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-3">
+                                @Html.NopFrameowrkLabelFor(model => model.FlagImageFileName)
+                            </div>
+                            <div class="col-md-9">
+                                @Html.NopFrameowrkEditorFor(model => model.FlagImageFileName)
+                                @Html.ValidationMessageFor(model => model.FlagImageFileName)
+                                <a id="displayAllFlags" href="javascript:toggleFlags();">显示</a>
+                                <div id="pnlAllFlags" style="display: none">
+                                    @foreach (var fileName in Model.FlagFileNames)
+                                    {
+                                        <img alt="" src="@Url.Content("~/Content/Images/flags/" + fileName)" />
+                                        @fileName
+                                        <text>, </text>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-3">
+                                @Html.NopFrameowrkLabelFor(model => model.Rtl)
+                            </div>
+                            <div class="col-md-9">
+                                @Html.NopFrameowrkEditorFor(model => model.Rtl)
+                                @Html.ValidationMessageFor(model => model.Rtl)
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-3">
+                                @Html.NopFrameowrkLabelFor(model => model.Published)
+                            </div>
+                            <div class="col-md-9">
+                                @Html.NopFrameowrkEditorFor(model => model.Published)
+                                @Html.ValidationMessageFor(model => model.Published)
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-3">
+                                @Html.NopFrameowrkLabelFor(model => model.DisplayOrder)
+                            </div>
+                            <div class="col-md-9">
+                                @Html.NopFrameowrkEditorFor(model => model.DisplayOrder)
+                                @Html.ValidationMessageFor(model => model.DisplayOrder)
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+@helper TabResources()
+{
+    <div class="panel-group">
+        <div class="panel panel-default panel-search">
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        @if (Model.Id > 0)
+                        {
+                            @*<div class="form-group">
+                                    <div class="col-md-3">
+                                        @Html.NopFrameowrkLabelFor(model => model.Search.SearchResourceName)
+                                    </div>
+                                    <div class="col-md-9">
+                                        @Html.NopFrameowrkEditorFor(model => model.Search.SearchResourceName)
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-md-3">
+                                        @Html.NopFrameowrkLabelFor(model => model.Search.SearchResourceValue)
+                                    </div>
+                                    <div class="col-md-9">
+                                        @Html.NopFrameowrkEditorFor(model => model.Search.SearchResourceValue)
+                                    </div>
+                                </div>*@
+                            <div class="form-group">
+                                <div class="col-md-9 col-md-offset-4">
+                                    <button type="button" id="search-resources" class="btn btn-primary btn-search">
+                                        <i class="fa fa-search"></i>
+                                        搜索
+                                    </button>
+                                </div>
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="form-group">
+                                <div class="col-md-12">
+                                    先编辑语言
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+        @if (Model.Id > 0)
+        {
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    @{
+                        var defaultGridPageSize = EngineContext.Current.Resolve<NopFramework.Core.Domains.Common.AdminAreaSettings>().DefaultGridPageSize;
+                        var gridPageSizes = EngineContext.Current.Resolve<NopFramework.Core.Domains.Common.AdminAreaSettings>().GridPageSizes;
+                    }
+                    <div id="resources-grid"></div>
+                    <script>
+                        $(document).ready(function() {
+                            $("#resources-grid").kendoGrid({
+                                dataSource: {
+                                    type: "json",
+                                    transport: {
+                                        read: {
+                                            url: "@Html.Raw(Url.Action("Resources", "Language", new { languageId = Model.Id }))",
+                                            type: "POST",
+                                            dataType: "json",
+                                            contentType: "application/json",
+                                            data: addAntiForgeryToken
+                                        },
+                                        create: {
+                                            url: "@Html.Raw(Url.Action("ResourceAdd", "Language", new {languageId = Model.Id}))",
+                                            type: "POST",
+                                            dataType: "json",
+                                            data: addAntiForgeryToken
+                                        },
+                                        update: {
+                                             url: "@Html.Raw(Url.Action("ResourceUpdate", "Language"))",
+                                            type: "POST",
+                                            dataType: "json",
+                                            data: addAntiForgeryToken
+                                        },
+                                        destroy: {
+                                             url: "@Html.Raw(Url.Action("ResourceDelete", "Language"))",
+                                            type: "POST",
+                                            dataType: "json",
+                                            data: addAntiForgeryToken
+                                        },
+                                        parameterMap: function(data, operation) {
+                                            if (operation != "read") {
+                                                return data;
+                                            } else {
+                                                //for some reasons only such "Filter" data be parsed
+                                                return JSON.stringify(data);
+                                            }
+                                        }
+                                    },
+                                    schema: {
+                                        data: "Data",
+                                        total: "Total",
+                                        errors: "Errors",
+                                        model: {
+                                            id: "Id",
+                                            fields: {
+                                                Name: { editable: true, type: "string" },
+                                                Value: { editable: true, type: "string" },
+                                                Id: { editable: false, type: "number" }
+                                            }
+                                        }
+                                    },
+                                    requestEnd: function(e) {
+                                        if (e.type == "create" || e.type == "update") {
+                                            this.read();
+                                        }
+                                    },
+                                    error: function(e) {
+                                        display_kendoui_grid_error(e);
+                                        // Cancel the changes
+                                        this.cancelChanges();
+                                    },
+                                    pageSize: @(defaultGridPageSize),
+                                    serverPaging: true,
+                                    serverFiltering: true,
+                                    serverSorting: true
+                                },
+                                pageable: {
+                                    refresh: true,
+                                    pageSizes: [@(gridPageSizes)],
+                                    buttonCount: 5,
+                                    messages: {
+                                        display: "显示{0}-{1}条，共{2}条",
+                                        empty: "没有数据",
+                                        page: "页",
+                                        of: "/ {0}",
+                                        itemsPerPage: "条/页",
+                                        first: "第一页",
+                                        previous: "前一页",
+                                        next: "下一页",
+                                        last: "最后一页",
+                                        refresh: "刷新"
+                                    }
+                                },
+                                toolbar: [{ name: "create", text: "添加" }],
+                                editable: {
+                                    confirmation: "确认删除",
+                                    mode: "inline"
+                                },
+                                scrollable: false,
+                                columns: [
+                                    {
+                                        field: "Name",
+                                        title: "名称",
+                                        width: 300
+                                    }, {
+                                        field: "Value",
+                                        title: "值",
+                                        width: 300
+                                    },
+
+                                    {
+                                        command: [
+                                            {
+                                                name: "edit",
+                                                text: {
+                                                    edit: "编辑",
+                                                    update: "更新",
+                                                    cancel: "取消"
+                                                }
+                                            }, {
+                                                name: "destroy",
+                                                //text: "删除"
+                                                text: "@L("Admin.Common.Delete")"
+                                            }
+                                        ],
+                                        width: 200
+                                    }
+                                ]
+                            });
+                        });
+
+                    </script>
+                </div>
+            </div>
+        }
+    </div>
+}
+
+

@@ -1,0 +1,128 @@
+﻿
+@using NopFramework.Web.Models.Catalog
+@using NopFramework.Web.Framework.UI
+@model List<ProductDetailsModel>
+<div class="footer">
+    <div class="footer-upper">
+        <div class="footer-block information">
+            <div class="title">
+                <strong>产品中心</strong>
+            </div>
+            <ul class="list">
+                @{
+                    int totalIndex = 0;
+                }
+                @foreach (var product in Model)
+                {
+                    totalIndex++;
+                    if (totalIndex > 4)
+                    {
+                        break;
+                    }
+                    <li>
+                        <a class="" href="@Url.RouteUrl("ProductItem", new { SeName = product.Name })">@product.Name</a>
+                        @*@Html.ActionLink("DBSLibPrep", "ProductDetail", "Product", new { productId = 2 }, new { @class = "" })*@
+                    </li>
+
+                }
+
+                @*<li>
+                        @Html.ActionLink("DBSMini3000", "ProductDetail", "Product", new { productId = 4 }, new { @class = "" })
+                    </li>*@
+            </ul>
+        </div>
+        <div class="footer-block customer-service">
+            <div class="title">
+                <strong>关于我们</strong>
+            </div>
+            <ul class="list">
+                <li>
+                    @Html.ActionLink("关于衡芯", "AboutUs", "Introduce")
+                </li>
+                @*<li>
+                        @Html.ActionLink("企业文化", "CompCulture", "Introduce")
+                    </li>
+                    <li>
+                        @Html.ActionLink("领军人物", "Leadship", "Introduce")
+                    </li>*@
+                <li>
+                    @Html.ActionLink("公司地址", "CompanyAddress", "Introduce")
+                </li>
+            </ul>
+        </div>
+        <div class="footer-block my-account">
+            <div class="title">
+                <strong>服务范围</strong>
+            </div>
+            <ul class="list">
+                <li>
+                    @Html.ActionLink("仪器资料下载", "CommonData", "Support")
+                </li>
+                <li>
+                    @Html.ActionLink("说明书下载", "InstructionsList", "Support")
+                </li>
+                <li>
+                    @Html.ActionLink("常见问题", "CommonData", "Support")
+                </li>
+                <li>
+                    @Html.ActionLink("联系我们", "ContactUs", "Contact")
+                </li>
+            </ul>
+        </div>
+
+        @*<div class="footer-block my-account">
+                <div class="title">
+                    <strong>联系我们</strong>
+                </div>
+                <ul class="list">
+                    <li>
+                        @Html.ActionLink("资料下载", "AboutUs", "Introduce")
+                    </li>
+                    <li>
+                        @Html.ActionLink("说明书下载", "CompCulture", "Introduce")
+                    </li>
+                    <li>
+                        @Html.ActionLink("常见问题", "Leadship", "Introduce")
+                    </li>
+
+                </ul>
+            </div>*@
+        <div class="footer-block follow-us">
+            <div class="social">
+                <h3 style="margin-top:0px;">上海衡芯生物科技有限公司</h3>
+                <p>
+
+                    邮编：221200&nbsp;&nbsp;&nbsp;电话：021-65650169<br>
+                    @*手机：187-614-30298&nbsp;&nbsp;&nbsp;传真：000-66668888<br>*@
+                    邮箱：info@hengxinbio.com<br>
+                    地址：上海市杨浦区国权北路1688弄75号
+                    湾谷科技园A8栋 801-802
+                </p>
+            </div>
+            <div class="">
+                <div id="">
+                    <img src="~/content/images/Logo/hengxinbioWeixin_small.jpg" style="width:100px;height:100px;">
+                </div>
+                <div id="">
+                    <span>扫一扫</span><br>
+                    关注衡芯生物！
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+    <div class="footer-lower">
+        <div class="footer-info">
+            <span class="footer-disclaimer">版权所有 ? 2018 hengxinbio 保留所有权利 Powered by hengxinbio</span>
+        </div>
+
+        <div class="footer-powered-by">
+            Powered by  <a href="@Url.Content("~/Admin")" class="">hengxinbio</a>
+            @*<a href="http://www.nopcommerce.com/">hengxinbio</a>*@
+        </div>
+
+
+    </div>
+</div>

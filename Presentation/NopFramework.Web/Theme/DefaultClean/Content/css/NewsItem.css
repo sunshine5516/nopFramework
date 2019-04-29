@@ -1,0 +1,156 @@
+/*新闻项目*/
+.blog_sidebar .widget {
+    border: 1px solid #e5e5e5;
+    border-radius: 3px;
+    overflow: hidden;
+    margin-top: 30px
+}
+
+    .blog_sidebar .widget:first-child {
+        margin-top: 20px
+    }
+
+    .blog_sidebar .widget .widget--title {
+        background: #fafafa;
+        position: relative;
+        font-size: 18px;
+        padding: 20px 10px 20px 24px;
+        margin: 0;
+        font-weight: 400
+    }
+
+        .blog_sidebar .widget .widget--title i {
+            margin-right: 5px;
+            color: #59bcdb
+        }
+
+    .blog_sidebar .widget ul {
+        font-size: 15px;
+        line-height: 24px;
+        padding: 0;
+        margin: 0 !important
+    }
+
+        .blog_sidebar .widget ul li {
+            border-top: 1px solid #e5e5e5;
+            padding: 17px 20px;
+            color: #9b9b9b;
+            list-style: none
+        }
+
+            .blog_sidebar .widget ul li a {
+                color: #9b9b9b !important;
+                padding: 5px 0
+            }
+
+            .blog_sidebar .widget ul li .rss-date {
+                display: block;
+                color: #262626;
+                padding: 4px 0 2px;
+                font-size: 15px
+            }
+
+
+            .blog_sidebar .widget ul li .active {
+                display: block;
+                color: #262626;
+                padding: 4px 0 2px;
+                font-size:35px;
+            }
+
+
+
+/*提交联系表单*/
+/*********** CONTACT & EMAIL A FRIEND & APPLY FOR VENDOR ACCOUNT ***********/
+
+
+
+.contact-page .page-title,
+.email-a-friend-page .page-title,
+.apply-vendor-page .page-title {
+    margin: 0 0 -1px;
+}
+
+.contact-page .result,
+.contact-page .message-error,
+.email-a-friend-page .result,
+.email-a-friend-page .message-error,
+.apply-vendor-page .result,
+.apply-vendor-page .message-error {
+    margin: 20px 0;
+}
+
+.contact-page .button-1,
+.email-a-friend-page .button-1,
+.apply-vendor-page .button-1 {
+    min-width: 140px;
+    border: none;
+    background-color: #4ab2f1;
+    padding: 10px 30px;
+    text-align: center;
+    font-size: 15px;
+    color: #fff;
+    text-transform: uppercase;
+}
+
+    .contact-page .button-1:hover,
+    .email-a-friend-page .button-1:hover,
+    .apply-vendor-page .button-1:hover {
+        background-color: #248ece;
+    }
+
+.contact-page .topic-block,
+.email-a-friend-page .title,
+.apply-vendor-page .title {
+    margin: 25px 0;
+}
+
+    .email-a-friend-page .title h2 {
+        font-weight: normal;
+        color: #4ab2f1;
+    }
+
+.contact_item {
+    position: relative;
+    padding: 0 0 0 97px
+}
+
+    .contact_item .contact_item--icon {
+        position: absolute;
+        font-size: 60px;
+        color: #4ab2f1;
+        top: 0;
+        left: 0
+    }
+
+    .contact_item .contact_item--title {
+        font-size: 20px
+    }
+
+    .contact_item .contact_item--text {
+        font-size: 16px;
+        line-height: 23px;
+        color: #969696;
+        margin: 15px 0 0
+    }
+
+.contact-left li .contact_item .contact_item--title {
+    font-size: 20px
+}
+
+
+/*子页page*/
+/*********** homepage ***********/
+.childpage .title {
+    margin: 0 0 -1px;
+    border-bottom: 1px solid #ddd;
+    padding: 0 0 15px;
+    font-size: 30px;
+    font-weight: normal;
+    color: #444;
+}
+
+    .childpage .title strong {
+        font-weight: normal;
+    }
+

@@ -1,0 +1,99 @@
+﻿@using NopFramework.Web.Models.Introduce
+@model List<TermModel>
+@{
+    ViewBag.Title = "CoreTechnology";
+}
+<section class="bg-default section-bottom-pad-40">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6 col-sm-offset-3 m-t-50">
+                <h2 class="head-h2-name heading underline">核心技术</h2>
+                <p class="text-center head-describe">
+                    我们所擅长的技术
+                </p>
+            </div>
+        </div>
+        <div class="row m-t-50">
+            <div class="col-sm-4">
+                <img src="~/Content/Images/Thumbs/default-image_100.png" alt="img" class="img-responsive center-block">
+            </div>
+            <div class="col-sm-4">
+                <ul class="list-unstyled">
+                    @foreach (var term in Model)
+                    {
+                        <li class="link_transition  section-top-10">
+                            @Html.ActionLink(term.Name, "TechnologyItem", "Introduce", new { termId = term.Id }, new { @class = "fa fa-caret-right" })
+                        </li>
+                    }
+
+                </ul>
+            </div>
+            <div class="col-sm-4">
+                <div id="Services_Carousel" class="carousel slide" data-ride="carousel">
+                    <ol class="carousel-indicators">
+                        <li data-target="#Services_Carousel" data-slide-to="0" class="active"></li>
+                        <li data-target="#Services_Carousel" data-slide-to="1"></li>
+                        <li data-target="#Services_Carousel" data-slide-to="2"></li>
+                    </ol>
+                    <div class="carousel-inner">
+                        @{
+                            var index = 0;
+                        }
+                        @foreach (var term in Model)
+                        {
+                            index++;
+                            if (index == 1)
+                            {
+                                <div class="item active" data-interval="3000">
+                                    <figure class="imghvr-zoom-in">
+                                        @if (term.TermPictureModels.Count>0&&term.TermPictureModels[0].ImageUrl != null)
+                                        {
+                                            <img src="@term.TermPictureModels[0].ImageUrl" class="img-responsive">
+                                        }
+                                        @*<img src="~/Content/Images/product/new_product1.png" alt="people" class="img-responsive">*@
+                                        <figcaption>
+                                            <div class="text-center">
+                                                <p class="text-white">
+                                                    @term.ShortDescription
+                                                </p>
+                                                @Html.ActionLink(term.Name, "TechnologyItem", "Introduce", new { termId = term.Id }, new { @class = "fa fa-caret-right" })
+                                            </div>
+                                        </figcaption>
+                                    </figure>
+                                </div>
+                            }
+                            <div class="item" data-interval="3000">
+                                <figure class="imghvr-zoom-in">
+                                    @if (term.TermPictureModels.Count > 0 && term.TermPictureModels[0].ImageUrl != null)
+                                    {
+                                        <img src="@term.TermPictureModels[0].ImageUrl" class="img-responsive">
+                                    }
+
+                                    @*<img src="~/Content/Images/product/new_product1.png" alt="people" class="img-responsive">*@
+                                    <figcaption>
+                                        <div class="text-center">
+                                            <p class="text-white">
+                                                @term.ShortDescription
+                                            </p>
+                                            @Html.ActionLink(term.Name, "TechnologyItem", "Introduce", new { termId = term.Id }, new { @class = "fa fa-caret-right" })
+                                        </div>
+                                    </figcaption>
+                                </figure>
+                            </div>
+
+                        }
+                    </div>
+                    <!-- Left and right controls -->
+                    <a class="left carousel-control" href="#Services_Carousel" role="button" data-slide="prev">
+                        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="right carousel-control" href="#Services_Carousel" role="button" data-slide="next">
+                        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

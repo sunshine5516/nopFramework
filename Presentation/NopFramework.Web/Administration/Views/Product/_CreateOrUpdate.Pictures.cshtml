@@ -1,0 +1,209 @@
+﻿@using NopFramework.Web.Framework.UI
+@using NopFramework.Web.Framework
+@using NopFramework.Admin.Models.Catalog
+@model ProductModel
+<div class="panel-group">
+    @*@if (Model.Id > 0)
+        {*@
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            Picture
+        </div>
+        <div class="panel-body">
+            <div id="ProductPictures-grid"></div>
+            <script>
+                            $(document).ready(function() {
+                                $("#ProductPictures-grid").kendoGrid({
+                                    dataSource: {
+                                        type: "json",
+                                        transport: {
+                                            read: {
+                                                url: "@Html.Raw(Url.Action("ProductPictureList", "Product",new { productId = Model.Id}))",
+                                                type: "POST",
+                                                dataType: "json",
+                                                data: addAntiForgeryToken
+                                            },
+                                            @*update: {
+                                                url: "@Html.Raw(Url.Action("BugPictureUpdate","Bugs"))",
+                                                type: "POST",
+                                                dataType: "json",
+                                                data: addAntiForgeryToken
+                                            },*@
+                                            destroy: {
+                                                url: "@Html.Raw(Url.Action("ProductPictureDelete", "Product"))",
+                                                type: "POST",
+                                                dataType: "json",
+                                                data: addAntiForgeryToken
+                                            }
+                                        },
+                                        schema: {
+                                            data: "Data",
+                                            total: "Total",
+                                            errors: "Errors",
+                                            model: {
+                                                id:"Id"
+                                            }
+                                        },
+                                        requestEnd: function (e) {
+                                            if (e.type == "create" || e.type == "update") {
+                                                this.read();
+                                            }
+                                        },
+                                        error: function (e) {
+                                            display_kendoui_grid_error(e);
+                                            // Cancel the changes
+                                            this.cancelChanges();
+                                        },
+
+                                        serverPaging: true,
+                                        serverFiltering: true,
+                                        serverSorting: true
+                                    },
+                                    editable: {
+                                        confirmation: "确认删除",
+                                        mode: "inline"
+                                    },
+                                    scrollable: false,
+                                    //dataBound: onDataBound,
+                                    columns: [
+                                        {
+                                            field: "Id",
+                                            headerTemplate: "<input id='mastercheckbox' type='checkbox'/>",
+                                            headerAttributes: { style: "text-align:center" },
+                                            attributes: { style: "text-align:center" },
+                                            template: "<input type='checkbox' value='#=Id#' class='checkboxGroups'/>",
+                                            width: 50
+                                        },
+                                        {
+                                            field: "PictureUrl",
+                                            title: "图片",
+                                            template:'<a href="#=PictureUrl#" target="_blank"><img alt="1" src="#=PictureUrl#" width="150"/></a>',
+                                            width: 200
+                                        },
+                                        {
+                                            field: "Description",
+                                            title: "名称",
+                                            width: 100
+                                        },
+                                        {
+                                             command: [
+                                                 //{
+                                                 //    name: "edit",
+                                                 //    text: {
+                                                 //        edit: "编辑",
+                                                 //        update: "更新",
+                                                 //        cancel: "取消"
+                                                 //    }
+                                                 //},
+                                                 {
+                                                     name: "destroy",
+                                                     text: "删除"
+                                                 }
+                                             ],
+                                             width:200
+                                        }
+                                    ]
+                                });
+                            });
+            </script>
+        </div>
+        <div class="panel-heading">
+            截图
+        </div>
+        <div class="panel-body">
+            <script type="text/javascript">
+                    $(document).ready(function () {
+                        $('#addProductPicture').click(function () {
+                            var pictureId = $("#@Html.FieldIdFor(model=>model.AddPictureModel.PictureId)").val();
+                            //var pictureId = 1;
+                            if (pictureId == 0) {
+                                alert("Upload picture first");
+                                return;
+                            }
+                            $('#addProductPicture').attr('disabled', true);
+                            var postData = {
+                                pictureId:pictureId,
+                                productId:@Model.Id
+                            };
+                            addAntiForgeryToken(postData);
+                            $.ajax(
+                                {
+                                    cache: false,
+                                    type: "POST",
+                                    url: "@(Url.Action("ProductPictureAdd", "Product"))",
+                                    data: postData,
+                                    success: function (data) {
+                                        var grid = $("#ProductPictures-grid");
+                                        grid.data('kendoGrid').dataSource.read();
+                                        $('#addProductPicture').attr('disabled', false);
+                                    },
+                                    error: function (xhr, ajaxOptions, thrownError) {
+                                        alert('Failed to add product picture.');
+                                        $('#addProductPicture').attr('disabled', false);
+                                    }
+                                }
+                            );
+                        });
+                    });
+            </script>
+
+            <div class="form-group">
+                @*@if (Model.AddPictureModel != null&&Model.AddPictureModel.Id > 0)
+                    {*@
+                <div class="col-md-3">
+
+                    @Html.NopFrameowrkLabelFor(model => model.AddPictureModel.PictureId)
+                </div>
+                <div class="col-md-9">
+                    @Html.NopFrameowrkEditorFor(model => model.AddPictureModel.PictureId)
+                    @Html.ValidationMessageFor(model => model.AddPictureModel.PictureId)
+                </div>
+                @*}*@
+
+            </div>
+            @*<div class="form-group">
+                    <div class="col-md-3">
+                        @Html.NopFrameowrkLabelFor(model => model.AddPictureModel.DisplayOrder)
+                    </div>
+                    <div class="col-md-9">
+                        @Html.NopFrameowrkEditorFor(model => model.AddPictureModel.DisplayOrder)
+                        @Html.ValidationMessageFor(model => model.AddPictureModel.DisplayOrder)
+                    </div>
+                </div>*@
+            <div class="form-group">
+                <div class="col-md-3">
+                    @Html.NopFrameowrkLabelFor(model => model.AddPictureModel.Description)
+                </div>
+                <div class="col-md-9">
+                    @Html.NopFrameowrkEditorFor(model => model.AddPictureModel.Description)
+                    @Html.ValidationMessageFor(model => model.AddPictureModel.Description)
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <div class="col-md-9 col-md-offset-3">
+                    <button type="button" id="addProductPicture" class="btn btn-primary">
+                        添加
+                    </button>
+                </div>
+                @*<div class="col-md-3">
+                        @Html.NopFrameowrkLabelFor(model => model.Link1)
+                    </div>
+                    <div class="col-md-9">
+                        @Html.NopFrameowrkEditorFor(model => model.Link1)
+                        @Html.ValidationMessageFor(model => model.Link1)
+                    </div>*@
+            </div>
+        </div>
+    </div>
+    @*}
+        else
+        {
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    您需要先保存才能进一步操作
+                </div>
+            </div>
+        }*@
+</div>

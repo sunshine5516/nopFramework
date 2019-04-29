@@ -1,0 +1,44 @@
+﻿@using NopFramework.Web.Models.Introduce
+@model TermModel
+@{
+    ViewBag.Title = "HomePageNews";
+    Layout = "~/Views/Shared/_Root.cshtml";
+}
+@Html.Action("AboutUsMenu", "Introduce")
+<div class="container">
+    <div class="page page-body childpage center-1 contact-page">
+        <div class="title">
+        </div>
+        <div class="row">
+            <div class="col-sm-6 col-sm-offset-3 text-center m-t-50">
+                <p>
+                    @*衡芯生物有限公司*@
+                    @Model.Name
+                </p>
+            </div>
+        </div>
+        <div class="row m-t-50">
+            <div class="col-sm-5">
+                <img src="~/Content/Images/Logo/companyLogo.png" class="img-responsive" alt="about_image">
+                <br />
+            </div>
+            <div class="col-sm-7">
+                <div class="row">
+                    <div class="text-describe">
+                        @*持之以“衡”，创“芯”科技！上海衡芯生物科技有限公司 ( 简称“衡芯生物”) 成立于
+                            2 0 1 0 年，位于上海市湾谷科技园，是一家专注于开发数字化微流控芯片、仪器、及其
+                            应用的高新生物技术企业。公司1 2 0 0 平方米的研发基地里，有万级无尘洁净室和二
+                            级安全生物实验室，更有一流的技术研发和产品开发团队。
+                            衡芯生物拥有多项已获国际专利的数字化微流技术，并一直保持和国内重点大学、
+                            科研院所、大型专科医院、国内外知名公司等全方位的合作，在测序样本建库、恒温
+                            扩增、定量P C R、数字P C R 等领域有丰富的技术积累，相关仪器及芯片已销售国内外
+                            大型的体外诊断公司。公司致力于开发以微液滴为基础的芯片实验室技术，用于生
+                            化分析、医疗检测、食品安全、环境监测等领域。*@
+                        @Html.Raw(Model.FullDescription)
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

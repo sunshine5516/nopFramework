@@ -1,0 +1,31 @@
+﻿@using NopFramework.Admin.Models.Media
+@using NopFramework.Web.Framework.UI
+@model ResourceModel
+@{
+    ViewBag.Title = "资源文件管理";
+    //active menu item (system name)
+    Html.SetActiveMenuItemSystemName("Resources Items");
+}
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div class="content-header clearfix">
+        <h1 class="pull-left">
+            编辑资源文件
+            <small><i class="fa fa-arrow-circle-left"></i>@Html.ActionLink("返回资源文件列表", "List")</small>
+        </h1>
+        <div class="pull-right">
+            <button type="submit" name="save" class="btn bg-blue">
+                <i class="fa fa-floppy-o"></i>
+                保存
+            </button>
+            <button type="submit" name="save-continue" class="btn bg-blue">
+                <i class="fa fa-floppy-o"></i>
+                保存并继续编辑
+            </button>
+        </div>
+    </div>
+    @Html.Partial("_CreateOrUpdate", Model)
+}
+
+

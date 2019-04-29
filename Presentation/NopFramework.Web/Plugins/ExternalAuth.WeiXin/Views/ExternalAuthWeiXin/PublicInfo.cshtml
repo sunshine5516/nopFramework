@@ -1,0 +1,20 @@
+﻿@using NopFramework.Web.Framework.UI
+@{
+    Layout = "";
+}
+<div class="text-center">
+    <a href="@Url.RouteUrl("Plugin.ExternalAuth.WeiXin.Login", new { ReturnUrl = HttpContext.Current.Request.QueryString["ReturnUrl"] })" class="weixin-btn">
+
+        <i class="fa weixin-login-block"></i>
+        微信授权登录
+    </a>
+   
+</div>
+@*<div class="weixin-login-block">
+    <div class="title">
+        微信登录
+    </div>
+    <div class="buttons">
+        <a href="@Url.RouteUrl("Plugin.ExternalAuth.WeiXin.Login", new { ReturnUrl = HttpContext.Current.Request.QueryString["ReturnUrl"] })" class="weixin-btn">微信授权登录</a>
+    </div>
+</div>*@

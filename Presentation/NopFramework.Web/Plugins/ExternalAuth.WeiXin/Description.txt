@@ -1,0 +1,9 @@
+﻿Group:ExternalAuth methods
+FriendlyName: WeiXin authentication
+SystemName: ExternalAuth.WeiXin
+Version: 1.00
+SupportedVersions: 1.00
+Author: Jayson
+DisplayOrder: 1
+FileName: Plugin.ExternalAuth.WeiXin.dll
+Description: 微信客户端登录

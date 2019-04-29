@@ -1,0 +1,118 @@
+﻿@using NopFramework.Core.Infrastructure
+@using NopFramework.Core.Domains.Localization
+@using NopFramework.Web.Framework.UI
+@using NopFramework.Web.Framework
+@{
+    ViewBag.Title = "_Root";
+    var themeName = "DefaultClean";
+
+    @*<script type="text/javascript" src="~/Scripts/jquery-1.10.2.js"></script>
+        <script type="text/javascript" src="~/Scripts/public.ajaxcart.js"></script>
+        <script type="text/javascript" src="~/Scripts/public.common.js"></script>
+        <script type="text/javascript" src="~/Scripts/jquery-migrate-1.2.1.min.js"></script>
+        <script type="text/javascript" src="~/Scripts/jquery-ui-1.10.3.custom.min.js"></script>
+        <script type="text/javascript" src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+        <script type="text/javascript" src="~/Scripts/jquery.validate.min.js"></script>
+        <script type="text/javascript" src="~/Scripts/custom/custom.js"></script>
+        <script type="text/javascript" src="~/Scripts/bootstrap.js"></script>
+        <script type="text/javascript" src="~/Content/custom/vendors/countup/js/countUp.min.js"></script>
+        <script type="text/javascript" src="~/Content/custom/vendors/revolution-slider/js/jquery.themepunch.revolution.min.js"></script>
+        <script type="text/javascript" src="~/Content/custom/vendors/revolution-slider/js/jquery.themepunch.tools.min.js"></script>
+        <script type="text/javascript" src="~/Content/custom/vendors/countup/js/countUp.min.js"></script>
+
+
+        <script type="text/javascript" src="~/Content/custom/vendors/sweetalert2/js/sweetalert2.min.js"></script>
+        <script type="text/javascript" src="~/Content/custom/vendors/jribbble/js/jribbble.min.js"></script>
+        <script type="text/javascript" src="~/Content/custom/vendors/jquery_newsTicker/js/newsTicker.js"></script>
+        <script type="text/javascript" src="~/Content/custom/vendors/iCheck/js/icheck.js"></script>
+        <script type="text/javascript" src="~/Content/custom/vendors/countup/js/countUp.min.js"></script>*@
+
+    //Html.AppendScriptParts("~/Scripts/public.ajaxcart.js");
+    //Html.AppendScriptParts("~/Scripts/public.common.js");
+    //Html.AppendScriptParts("~/Scripts/jquery-migrate-1.2.1.min.js");
+    //Html.AppendScriptParts("~/Scripts/jquery-ui-1.10.3.custom.min.js");
+    //Html.AppendScriptParts("~/Scripts/jquery.validate.unobtrusive.min.js");
+    //Html.AppendScriptParts("~/Scripts/jquery.validate.min.js");
+    //Html.AppendScriptParts("~/Scripts/custom/custom.js");
+
+
+    Html.AppendScriptParts("~/Scripts/bootstrap.js");
+    Html.AppendScriptParts("~/Content/custom/vendors/countup/js/countUp.min.js");
+    Html.AppendScriptParts("~/Content/custom/vendors/revolution-slider/js/jquery.themepunch.revolution.min.js");
+    Html.AppendScriptParts("~/Content/custom/vendors/revolution-slider/js/jquery.themepunch.tools.min.js");
+
+    Html.AppendScriptParts("~/Content/custom/vendors/sweetalert2/js/sweetalert2.min.js");
+    Html.AppendScriptParts("~/Content/custom/vendors/jribbble/js/jribbble.min.js");
+    Html.AppendScriptParts("~/Content/custom/vendors/jquery_newsTicker/js/newsTicker.js");
+    Html.AppendScriptParts("~/Content/custom/vendors/iCheck/js/icheck.js");
+
+    Html.AppendScriptParts("~/Content/custom/vendors/iCheck/js/icheck.js");
+    Html.AppendScriptParts("~/Content/tinymce/tinymce.min.js");
+    Html.AppendScriptParts("~/Scripts/public.common.js");
+    Html.AppendScriptParts("~/Scripts/jquery-1.10.2.js");
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+    //Html.AppendCssFileParts("~/Content/custom/vendors/revolution-slider/css/navigation.css");
+
+    //Html.AppendCssFileParts("~/Content/custom/vendors/revolution-slider/css/layers.css");
+    //Html.AppendCssFileParts("~/Content/custom/vendors/revolution-slider/css/settings.css");
+    Html.AppendCssFileParts("~/Content/custom/vendors/imagehover/css/imagehover.min.css");
+    //Html.AppendCssFileParts("~/Content/custom/vendors/animate/animate.min.css");
+    //Html.AppendCssFileParts("~/Content/custom/vendors/iCheck/css/all.css");
+    //Html.AppendCssFileParts("~/Content/custom/vendors/sweetalert2/css/sweetalert2.min.css");
+
+    Html.AppendCssFileParts("~/Content/bootstrap.css");
+    Html.AppendCssFileParts("~/Content/custom/custom.css");
+    Html.AppendCssFileParts(string.Format("~/Theme/{0}/Content/css/styles.css", themeName));
+    // Html.AppendCssFileParts("~/Theme/DefaultClean/Content/css/styles.css");
+    Html.AppendCssFileParts("~/Theme/DefaultClean/Content/css/NewsItem.css");//新闻导航
+    Html.AppendCssFileParts("~/Content/custom/font-awesome.min.css");
+
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    @*<meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+        <!--[if lte IE 9]>
+        <script src="bootstrap/js/respond.min.js"></script>
+        <script src="bootstrap/js/html5.js"></script>
+        <![endif]-->
+        <!-- Respond.js proxy on external server -->
+        <link href="http://externalcdn.com/respond-proxy.html" id="respond-proxy" rel="respond-proxy" />
+
+
+
+        //html5shiv : html5.js（Google Code）(Github)是让不（完全）支持html5的浏览器“支持”html5标签。
+        <script src="~/Scripts/IE/html5shiv.js"></script>
+
+        <script src="~/Scripts/IE/respond.js"></script>
+
+
+        <title>Document</title>*@
+
+
+
+    <title>Index</title>
+    <meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    @Html.NopFrameworkCssFiles(this.Url, ResourceLocation.Head)
+    @Html.NopFrameworkScripts(this.Url, ResourceLocation.Head)
+</head>
+<body>
+    <div class="master-wrapper-page">
+        @*@Html.Action("AdminHeaderLinks", "Common")@Html.Action("AdminHeaderLinks", "Common")*@
+        @Html.Partial("Header")
+    </div>
+    @RenderBody()
+    @Html.NopFrameworkCssFiles(this.Url, ResourceLocation.Foot)
+    @Html.NopFrameworkScripts(this.Url, ResourceLocation.Foot)
+    <hr />
+    @Html.Action("Footer", "Common")
+</body>
+</html>
+

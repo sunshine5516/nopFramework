@@ -1,0 +1,195 @@
+﻿@using NopFramework.Admin.Models.Logging
+@using NopFramework.Web.Framework.UI
+@using NopFramework.Core.Infrastructure
+@using NopFramework.Web.Framework
+@model ActivityLogSearchModel
+@{
+    var defaultGridPageSize = EngineContext.Current.Resolve<NopFramework.Core.Domains.Common.AdminAreaSettings>().DefaultGridPageSize;
+    var gridPageSizes = EngineContext.Current.Resolve<NopFramework.Core.Domains.Common.AdminAreaSettings>().GridPageSizes;
+    ViewBag.Title = "活动日志";
+    //active menu item (system name)
+    Html.SetActiveMenuItemSystemName("Activity log list");
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div class="content-header clearfix">
+        <h1 class="pull-left">
+            活动日志
+        </h1>
+        <div class="pull-right">
+            <button type="button" id="delete-selected" class="btn bg-red">
+                <i class="fa fa-trash-o"></i>
+                清除
+            </button>
+        </div>
+    </div>
+
+
+    <div class="content">
+        <div class="form-horizontal">
+            <div class="panel-group">
+                <div class="panel panel-default panel-search">
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-md-5">
+
+
+                                <div class="form-group">
+                                    <div class="col-md-4">
+                                        @Html.NopFrameowrkLabelFor(model => model.SearchStartDate)
+                                    </div>
+                                    <div class="col-md-8">
+                                        @Html.NopFrameowrkEditorFor(model => model.SearchStartDate)
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-md-4">
+                                        @Html.NopFrameowrkLabelFor(model => model.SearchEndDate)
+                                    </div>
+                                    <div class="col-md-8">
+                                        @Html.NopFrameowrkEditorFor(model => model.SearchEndDate)
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="col-md-7">
+
+                                <div class="form-group">
+                                    <div class="col-md-4">
+                                        @Html.NopFrameowrkLabelFor(model => model.IpAddress)
+                                    </div>
+                                    <div class="col-md-8">
+                                        @Html.NopFrameowrkEditorFor(model => model.IpAddress)
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-md-4">
+                                        @Html.NopFrameowrkLabelFor(model => model.ActivityLogTypeId)
+                                    </div>
+
+                                    <div class="col-md-8">
+                                        @Html.NopFramoworkDropDownListFor(model => model.ActivityLogTypeId, Model.ActivityLogTypes)
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group">
+                                <div class="col-md-8 col-md-offset-4">
+                                    <button type="button" id="search-Logs" class="btn btn-primary btn-search">
+                                        <i class="fa fa-search"></i>
+                                        搜索
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <div id="customerLogs-grid"></div>
+                        <script>
+                            $(document).ready(function() {
+                                $("#customerLogs-grid").kendoGrid({
+                                    dataSource: {
+                                        type: "json",
+                                        transport: {
+                                            read: {
+                                                url: "@Html.Raw(Url.Action("ListLogs", "ActivityLog"))",
+                                                type: "POST",
+                                                dataType: "json",
+                                                data: additionalData
+                                            }
+                                        },
+                                        schema: {
+                                            data: "Data",
+                                            total: "Total",
+                                            errors: "Errors"
+                                        },
+                                        error: function(e) {
+                                            display_kendoui_grid_error(e);
+                                            // Cancel the changes
+                                            this.cancelChanges();
+                                        },
+                                        pageSize: @(defaultGridPageSize),
+                                        serverPaging: true,
+                                        serverFiltering: true,
+                                        serverSorting: true
+                                    },
+                                    pageable: {
+                                        refresh: true,
+                                        pageSizes: [@(gridPageSizes)],
+                                        messages: {
+                                            display: "显示{0}-{1}条，共{2}条",
+                                            empty: "没有数据",
+                                            page: "页",
+                                            of: "/ {0}",
+                                            itemsPerPage: "条/页",
+                                            first: "第一页",
+                                            previous: "前一页",
+                                            next: "下一页",
+                                            last: "最后一页",
+                                            refresh: "刷新"
+                                        }
+                                    },
+                                    scrollable: false,
+                                    //dataBound: onDataBound,
+                                    columns: [
+                                        {
+                                            field: "ActivityLogTypeName",
+                                            title: "日志类型",
+                                            width: 50
+                                        },
+                                        {
+                                            field: "CustomerEmail",
+                                            title: "电子邮箱",
+                                            width: 50
+                                        }, {
+                                            field: "Comment",
+                                            title: "内容",
+                                            width: 50
+                                        }, {
+                                            field: "IpAddress",
+                                            title: "Ip地址",
+                                            width: 50
+                                        },  {
+                                            field: "CreatedOn",
+                                            title: "日期",
+                                            width: 50,
+                                            type: "date",
+                                            format: "{0:G}"
+                                        }
+
+                                    ]
+                                });
+                            });
+                        </script>
+                        <script type="text/javascript">
+                            $(document).ready(function () {
+                                $('#search-Logs').click(function () {
+                                    var grid = $('#customerLogs-grid').data('kendoGrid');
+                                    grid.dataSource.page(1);
+                                    return false;
+                                });
+                            });
+                            function additionalData() {
+                                var data = {
+                                    SearchStartDate: $('#@Html.FieldIdFor(model=>model.SearchStartDate)').val(),
+                                    SearchEndDate: $('#@Html.FieldIdFor(model=>model.SearchEndDate)').val(),
+                                    IpAddress: $('#@Html.FieldIdFor(model=>model.IpAddress)').val(),
+                                    ActivityLogTypeId: $('#ActivityLogTypeId').val()
+
+                                };
+                                addAntiForgeryToken(data);
+                                return data;
+                            }
+                        </script>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+

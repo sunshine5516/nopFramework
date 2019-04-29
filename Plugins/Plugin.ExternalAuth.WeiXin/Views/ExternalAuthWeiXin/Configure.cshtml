@@ -1,0 +1,36 @@
+﻿@{
+    Layout = "";
+}
+@using Plugin.ExternalAuth.WeiXin.Models
+@using NopFramework.Web.Framework;
+@model ConfigurationModel
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <table class="adminContent">
+        <tr>
+            <td class="adminTitle">
+                @Html.NopFrameowrkLabelFor(model => model.AppId):
+            </td>
+            <td class="adminData">
+                @Html.EditorFor(model => model.AppId)
+                @Html.ValidationMessageFor(model => model.AppId)
+            </td>
+        </tr>
+        <tr>
+            <td class="adminTitle">
+                @Html.NopFrameowrkLabelFor(model => model.AppSecret):
+            </td>
+            <td class="adminData">
+                @Html.EditorFor(model => model.AppSecret)
+                @Html.ValidationMessageFor(model => model.AppSecret)
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <input type="submit" name="save" class="k-button" value="保存" />
+            </td>
+        </tr>
+    </table>
+
+}

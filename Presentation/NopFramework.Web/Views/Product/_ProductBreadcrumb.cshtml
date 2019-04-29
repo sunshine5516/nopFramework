@@ -1,0 +1,38 @@
+﻿@using NopFramework.Web.Models.Catalog
+
+@model ProductBreadcrumbModel
+   
+@if (Model.Enabled)
+{
+    <div class="breadcrumb">
+        <ul>
+           
+            <li>
+                <span itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <a href="@Url.RouteUrl("HomePage")" itemprop="url">
+                        <span itemprop="title">首页</span>
+                    </a>
+                </span>
+                <span class="delimiter"></span>
+            </li>
+            @*@foreach (var category in Model.CategoryBreadcrumb)
+            {*@
+                <li>
+                    <span itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
+                        
+                            <span itemprop="title">产品</span>
+
+                    </span>5
+                    <span>/</span>
+                    <span class="delimiter">@Model.ProductName</span>
+                </li>
+            @*}*@
+            <li>
+                @*<strong class="current-item">@Model.ProductName</strong>*@
+                @*<strong class="current-item"><a href="@Url.RouteUrl("Product", new { SeName = Model.ProductSeName })" itemprop="url">@Model.ProductName</a></strong>*@
+                @*@Html.Widget("productbreadcrumb_after", Model.ProductId)*@
+            </li>
+        </ul>
+    </div>
+
+}

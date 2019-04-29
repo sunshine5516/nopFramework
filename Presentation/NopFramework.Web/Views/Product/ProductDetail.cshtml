@@ -1,0 +1,66 @@
+﻿@using NopFramework.Web.Models.Catalog
+@using NopFramework.Web.Framework.UI
+@model ProductDetailsModel
+@{
+    ViewBag.Title = "ProductDetail";
+}
+@Html.Action("ProductMenu", "Product")
+<div class="container">
+   
+    @Html.Partial("_ProductBreadcrumb", Model.Breadcrumb)
+    <div class="row product-essential">
+        <div class="">
+            <div>
+                @Html.Partial("_ProductDetailsPictures", Model)
+                @*<img src="@Model.DefaultPictureModel.ImageUrl" style="width:540px;height:404px;" class="" alt="DBS建库仪">*@
+            </div>
+        </div>
+        <div class="overview">
+            <div class="product-intro">
+                <h3 class="">@Model.Name</h3>
+                <p class="head-describe">@Model.ShortDescription</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="met-showproduct-body page-content">
+    <div class="container">
+        <div class="row">
+
+            <!-- 内容选项卡 -->
+            <div class="col-lg-9 pull-lg-right">
+
+                <div class="row">
+                    <div class="panel panel-body m-b-0 product-detail" boxmh-mh="" style="">
+                        <ul class="nav nav-tabs nav-tabs-line m-b-20 met-showproduct-navtabs">
+                            <li class="nav-item">
+                                <a class="nav-link " data-toggle="tab" href="#product-content0" data-get="product-details">详细信息</a>
+                            </li>
+                            <li class="nav-item active">
+                                <a class="nav-link" data-toggle="tab" href="#product-content1" data-get="product-details">技术参数</a>
+                            </li>
+                        </ul>
+                        <article class="tab-content">
+                            <section class="tab-pane met-editor clearfix animation-fade" id="product-content0">
+                                <p>
+                                    <span>
+                                        @Html.Raw(Model.FullDescription)
+                                    </span>
+                                </p>
+                            </section>
+                            <section class="tab-pane met-editor clearfix animation-fade active" id="product-content1">
+                                <ul class="txt txt-lh list-paddingleft-2" style="list-style-type: none;">
+                                    @Model.Parameters
+                                </ul><p><br></p>
+                            </section>
+                            <div class="tag">
+                                <span></span>
+                                <a href="" title=""></a>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

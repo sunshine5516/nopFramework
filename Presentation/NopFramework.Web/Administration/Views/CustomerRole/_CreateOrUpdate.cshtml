@@ -1,0 +1,60 @@
+﻿@using NopFramework.Admin.Models.Customers
+@using NopFramework.Web.Framework
+@model CustomerRoleModel
+
+@Html.ValidationSummary(true)
+@Html.HiddenFor(model => model.Id)
+@*@Html.HiddenFor(model => model.Id)*@
+<div class="content">
+    <div class="form-horizontal">
+        <div class="panel-group">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <div class="form-group">
+                        <div class="col-md-3">
+                            @Html.NopFrameowrkLabelFor(model => model.Name)
+                        </div>
+                        <div class="col-md-9">
+                            @Html.NopFrameowrkEditorFor(model => model.Name)
+                            @Html.ValidationMessageFor(model => model.Name)
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-3">
+                            @Html.NopFrameowrkLabelFor(model => model.SystemName)
+                        </div>
+                        <div class="col-md-9">
+                            @Html.NopFrameowrkEditorFor(model => model.SystemName)
+                            @Html.ValidationMessageFor(model => model.SystemName)
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-3">
+                            @Html.NopFrameowrkLabelFor(model => model.IsActive)
+                        </div>
+                        <div class="col-md-9">
+
+                            @Html.NopFrameowrkEditorFor(model => model.IsActive)
+                        </div>
+                        @Html.ValidationMessageFor(model => model.IsActive)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-3">
+                        @Html.NopFrameowrkLabelFor(model => model.IsSystemRole)
+                    </div>
+                    <div class="col-md-9">
+
+                        @Html.NopFrameowrkEditorFor(model => model.IsSystemRole)
+                    </div>
+                    @Html.ValidationMessageFor(model => model.IsSystemRole)
+                </div>
+            </div>
+                 
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

@@ -1,0 +1,19 @@
+﻿@using NopFramework.Web.Models.Contact
+@model RecruitmentModel
+@Html.Action("ContactMenu", "Contact")
+<div class="container">
+
+    <div class="news-list-homepage center-1">
+        <div class="title">
+            <strong>职位信息</strong>
+        </div>
+        @Html.Action("JobsMenu", "Contact")
+    </div>
+    <div class="page col-md-9">
+        <div class="news-title">@Model.Name</div>
+        <div class="content">
+            @Html.Raw(Model.FullDescription)
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,700 @@
+.topinsulate {
+    background: #34495e;
+    color: #fff;
+    padding: 30px 0;
+    margin-bottom: 40px;
+}
+section.infos {
+    border: 1px solid #eee;
+    margin-bottom: 15px;
+    padding: 10px;
+}
+
+.feature-head {
+    padding: 10px 0
+}
+
+.mar-b-50 {
+    margin-bottom: 50px
+}
+.container {
+    width: 95%
+}
+.feature-head h1 {
+    color: #797979;
+    font-size: 30px;
+    font-weight: 300;
+    text-transform: uppercase;
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+
+.feature-head p {
+    color: #8a8b8b;
+    font-size: 18px;
+    font-weight: 300;
+    text-align: center;
+    padding-bottom: 5px;
+    margin-bottom: 20px;
+}
+
+
+/*property*/
+.property {
+    padding: 80px 0;
+    margin-bottom: 60px;
+    background-color: #fafafa;
+}
+
+.bg-lg {
+    background: #f9f9f3
+}
+
+.gray-bg {
+    background: #f9f9f3
+}
+
+.property h1 {
+    color: #475168;
+    font-size: 24px;
+    text-transform: uppercase;
+    font-weight: 400;
+    margin-bottom: 30px;
+}
+
+.property hr {
+    border-color: #dfdcdf
+}
+
+.property i {
+    color: #48cfad
+}
+
+
+
+
+#home-services {
+    text-align: center
+}
+
+    #home-services h2 {
+        margin-bottom: 65px;
+        text-transform: uppercase;
+        margin-top: 45px;
+        padding-bottom: 5px;
+        text-align: center;
+        font-size: 25px;
+    }
+.h-service {
+    border: 1px solid #eee;
+    margin-bottom: 25px;
+}
+
+
+#home-services .h-service-content h3 {
+    padding-top: 40px;
+    text-align: center;
+}
+
+.h-service-content p {
+    text-align: center;
+    padding: 5px 21px 20px;
+}
+
+.h-service-content a {
+    color: #e74c3c;
+    -webkit-transition: all .3s ease;
+    -moz-transition: all .3s ease;
+  
+    -o-transition: all .3s ease;
+    transition: all .3s ease;
+}
+
+    .h-service-content a:hover {
+        color: #16a085
+    }
+
+
+.da-slider {
+    width: 100%;
+    height: 550px;
+    min-width: 520px;
+    position: relative;
+    margin: 0 auto;
+    overflow: hidden;
+    background: transparent url(../../Images/product/main-bg.jpg) repeat 0% 0%;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+    /*box-shadow: 0px 1px 1px rgba(0,0,0,0.2), 0px -2px 1px #fff;*/
+    -webkit-transition: background-position 1s ease-out 0.3s;
+    -moz-transition: background-position 1s ease-out 0.3s;
+    -o-transition: background-position 1s ease-out 0.3s;
+   
+    transition: background-position 1s ease-out 0.3s;
+    z-index: 1;
+}
+
+.da-slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    left: 0px;
+    font-family: 'BebasNeueRegular', 'Arial Narrow', Arial, sans-serif;
+    text-align: left;
+}
+
+.da-slide-current {
+    z-index: 1000;
+}
+
+.da-slider-fb .da-slide {
+    left: 100%;
+}
+
+    .da-slider-fb .da-slide.da-slide-current {
+        left: 0px;
+    }
+
+.da-slide h2,
+.da-slide p,
+.da-slide .da-link,
+.da-slide .da-img {
+    position: absolute;
+    opacity: 0;
+    left: 110%;
+}
+
+.da-slider-fb .da-slide h2,
+.da-slider-fb .da-slide p,
+.da-slider-fb .da-slide .da-link {
+    left: 10%;
+    opacity: 1;
+}
+
+.da-slider-fb .da-slide .da-img {
+    left: 60%;
+    opacity: 1;
+}
+
+.da-slide h2 {
+    color: #fff;
+    font-size: 40px;
+    /*width: 32%;*/
+    top: 60px;
+    white-space: nowrap;
+    z-index: 10;
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.1);
+    font-family: 'Economica', Arial, sans-serif;
+    font-weight: 700;
+    margin-left: -8%;
+}
+
+.da-slide p {
+    width: 45%;
+    top: 260px;
+    color: #ffffff;
+    font-size: 18px;
+    line-height: 26px;
+    height: 80px;
+    overflow: hidden;
+    font-style: italic;
+    font-family: 'Economica', Arial, sans-serif;
+    font-weight: 400;
+    font-style: italic;
+    margin-left: -8%;
+}
+
+
+
+
+
+
+
+.da-arrows span.da-arrows-next {
+    right: 15px;
+}
+
+.da-slide-current h2,
+.da-slide-current p,
+.da-slide-current .da-link {
+    left: 10%;
+    opacity: 1;
+}
+
+.da-slide-current .da-img {
+    left: 60%;
+    opacity: .9;
+}
+/* Animation classes and animations */
+
+/* Slide in from the right*/
+.da-slide-fromright h2 {
+    -webkit-animation: fromRightAnim1 0.6s ease-in-out 0.8s both;
+    -moz-animation: fromRightAnim1 0.6s ease-in-out 0.8s both;
+    -o-animation: fromRightAnim1 0.6s ease-in-out 0.8s both;
+    
+    animation: fromRightAnim1 0.6s ease-in-out 0.8s both;
+}
+
+.da-slide-fromright p {
+    -webkit-animation: fromRightAnim2 0.6s ease-in-out 0.8s both;
+    -moz-animation: fromRightAnim2 0.6s ease-in-out 0.8s both;
+    -o-animation: fromRightAnim2 0.6s ease-in-out 0.8s both;
+  
+    animation: fromRightAnim2 0.6s ease-in-out 0.8s both;
+}
+
+.da-slide-fromright .da-link {
+    -webkit-animation: fromRightAnim3 0.4s ease-in-out 1.2s both;
+    -moz-animation: fromRightAnim3 0.4s ease-in-out 1.2s both;
+    -o-animation: fromRightAnim3 0.4s ease-in-out 1.2s both;
+  
+    animation: fromRightAnim3 0.4s ease-in-out 1.2s both;
+}
+
+.da-slide-fromright .da-img {
+    -webkit-animation: fromRightAnim4 0.6s ease-in-out 0.8s both;
+    -moz-animation: fromRightAnim4 0.6s ease-in-out 0.8s both;
+    -o-animation: fromRightAnim4 0.6s ease-in-out 0.8s both;
+    animation: fromRightAnim4 0.6s ease-in-out 0.8s both;
+}
+
+@-webkit-keyframes fromRightAnim1 {
+    0% {
+        left: 110%;
+        opacity: 0;
+    }
+
+    100% {
+        left: 10%;
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes fromRightAnim2 {
+    0% {
+        left: 110%;
+        opacity: 0;
+    }
+
+    100% {
+        left: 10%;
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes fromRightAnim3 {
+    0% {
+        left: 110%;
+        opacity: 0;
+    }
+
+    1% {
+        left: 10%;
+        opacity: 0;
+    }
+
+    100% {
+        left: 10%;
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes fromRightAnim4 {
+    0% {
+        left: 110%;
+        opacity: 0;
+    }
+
+    100% {
+        left: 60%;
+        opacity: 1;
+    }
+}
+
+@-moz-keyframes fromRightAnim1 {
+    0% {
+        left: 110%;
+        opacity: 0;
+    }
+
+    100% {
+        left: 10%;
+        opacity: 1;
+    }
+}
+
+@-moz-keyframes fromRightAnim2 {
+    0% {
+        left: 110%;
+        opacity: 0;
+    }
+
+    100% {
+        left: 10%;
+        opacity: 1;
+    }
+}
+
+@-moz-keyframes fromRightAnim3 {
+    0% {
+        left: 110%;
+        opacity: 0;
+    }
+
+    1% {
+        left: 10%;
+        opacity: 0;
+    }
+
+    100% {
+        left: 10%;
+        opacity: 1;
+    }
+}
+
+@-moz-keyframes fromRightAnim4 {
+    0% {
+        left: 110%;
+        opacity: 0;
+    }
+
+    100% {
+        left: 60%;
+        opacity: 1;
+    }
+}
+
+@-o-keyframes fromRightAnim1 {
+    0% {
+        left: 110%;
+        opacity: 0;
+    }
+
+    100% {
+        left: 10%;
+        opacity: 1;
+    }
+}
+
+@-o-keyframes fromRightAnim2 {
+    0% {
+        left: 110%;
+        opacity: 0;
+    }
+
+    100% {
+        left: 10%;
+        opacity: 1;
+    }
+}
+
+@-o-keyframes fromRightAnim3 {
+    0% {
+        left: 110%;
+        opacity: 0;
+    }
+
+    1% {
+        left: 10%;
+        opacity: 0;
+    }
+
+    100% {
+        left: 10%;
+        opacity: 1;
+    }
+}
+
+@-o-keyframes fromRightAnim4 {
+    0% {
+        left: 110%;
+        opacity: 0;
+    }
+
+    100% {
+        left: 60%;
+        opacity: 1;
+    }
+}
+
+/* Slide in from the left*/
+.da-slide-fromleft h2 {
+    -webkit-animation: fromLeftAnim1 0.6s ease-in-out 0.6s both;
+    -moz-animation: fromLeftAnim1 0.6s ease-in-out 0.6s both;
+    -o-animation: fromLeftAnim1 0.6s ease-in-out 0.6s both;
+  
+    animation: fromLeftAnim1 0.6s ease-in-out 0.6s both;
+}
+
+.da-slide-fromleft p {
+    -webkit-animation: fromLeftAnim2 0.6s ease-in-out 0.6s both;
+    -moz-animation: fromLeftAnim2 0.6s ease-in-out 0.6s both;
+    -o-animation: fromLeftAnim2 0.6s ease-in-out 0.6s both;
+  
+    animation: fromLeftAnim2 0.6s ease-in-out 0.6s both;
+}
+
+.da-slide-fromleft .da-link {
+    -webkit-animation: fromLeftAnim3 0.4s ease-in-out 1.2s both;
+    -moz-animation: fromLeftAnim3 0.4s ease-in-out 1.2s both;
+    -o-animation: fromLeftAnim3 0.4s ease-in-out 1.2s both;
+ 
+    animation: fromLeftAnim3 0.4s ease-in-out 1.2s both;
+}
+
+.da-slide-fromleft .da-img {
+    -webkit-animation: fromLeftAnim4 0.6s ease-in-out 0.6s both;
+    -moz-animation: fromLeftAnim4 0.6s ease-in-out 0.6s both;
+    -o-animation: fromLeftAnim4 0.6s ease-in-out 0.6s both;   
+    animation: fromLeftAnim4 0.6s ease-in-out 0.6s both;
+}
+
+/* Slide out to the right */
+.da-slide-toright h2 {
+    -webkit-animation: toRightAnim1 0.6s ease-in-out 0.6s both;
+    -moz-animation: toRightAnim1 0.6s ease-in-out 0.6s both;
+    -o-animation: toRightAnim1 0.6s ease-in-out 0.6s both;
+    animation: toRightAnim1 0.6s ease-in-out 0.6s both;
+}
+
+.da-slide-toright p {
+    -webkit-animation: toRightAnim2 0.6s ease-in-out 0.3s both;
+    -moz-animation: toRightAnim2 0.6s ease-in-out 0.3s both;
+    -o-animation: toRightAnim2 0.6s ease-in-out 0.3s both;
+    animation: toRightAnim2 0.6s ease-in-out 0.3s both;
+}
+
+.da-slide-toright .da-link {
+    -webkit-animation: toRightAnim3 0.4s ease-in-out both;
+    -moz-animation: toRightAnim3 0.4s ease-in-out both;
+    -o-animation: toRightAnim3 0.4s ease-in-out both;
+    animation: toRightAnim3 0.4s ease-in-out both;
+}
+
+.da-slide-toright .da-img {
+    -webkit-animation: toRightAnim4 0.6s ease-in-out both;
+    -moz-animation: toRightAnim4 0.6s ease-in-out both;
+    -o-animation: toRightAnim4 0.6s ease-in-out both;
+    animation: toRightAnim4 0.6s ease-in-out both;
+}
+
+/* Slide out to the left*/
+.da-slide-toleft h2 {
+    -webkit-animation: toLeftAnim1 0.6s ease-in-out both;
+    -moz-animation: toLeftAnim1 0.6s ease-in-out both;
+    -o-animation: toLeftAnim1 0.6s ease-in-out both;
+    animation: toLeftAnim1 0.6s ease-in-out both;
+}
+
+.da-slide-toleft p {
+    -webkit-animation: toLeftAnim2 0.6s ease-in-out 0.3s both;
+    -moz-animation: toLeftAnim2 0.6s ease-in-out 0.3s both;
+    -o-animation: toLeftAnim2 0.6s ease-in-out 0.3s both;
+    animation: toLeftAnim2 0.6s ease-in-out 0.3s both;
+}
+
+.da-slide-toleft .da-link {
+    -webkit-animation: toLeftAnim3 0.6s ease-in-out 0.6s both;
+    -moz-animation: toLeftAnim3 0.6s ease-in-out 0.6s both;
+    -o-animation: toLeftAnim3 0.6s ease-in-out 0.6s both;
+    animation: toLeftAnim3 0.6s ease-in-out 0.6s both;
+}
+
+.da-slide-toleft .da-img {
+    -webkit-animation: toLeftAnim4 0.6s ease-in-out 0.5s both;
+    -moz-animation: toLeftAnim4 0.6s ease-in-out 0.5s both;
+    -o-animation: toLeftAnim4 0.6s ease-in-out 0.5s both;
+    animation: toLeftAnim4 0.6s ease-in-out 0.5s both;
+}
+
+@-webkit-keyframes toLeftAnim1 {
+    0% {
+        left: 10%;
+        opacity: 1;
+    }
+
+    30% {
+        left: 15%;
+        opacity: 1;
+    }
+
+    100% {
+        left: -50%;
+        opacity: 0;
+    }
+}
+
+@-webkit-keyframes toLeftAnim2 {
+    0% {
+        left: 10%;
+        opacity: 1;
+    }
+
+    30% {
+        left: 15%;
+        opacity: 1;
+    }
+
+    100% {
+        left: -50%;
+        opacity: 0;
+    }
+}
+
+@-webkit-keyframes toLeftAnim3 {
+    0% {
+        left: 10%;
+        opacity: 1;
+    }
+
+    100% {
+        left: -50%;
+        opacity: 0;
+    }
+}
+
+@-webkit-keyframes toLeftAnim4 {
+    0% {
+        left: 60%;
+        opacity: 1;
+    }
+
+    70% {
+        left: 30%;
+        opacity: 0;
+    }
+
+    100% {
+        left: -50%;
+        opacity: 0;
+    }
+}
+
+@-moz-keyframes toLeftAnim1 {
+    0% {
+        left: 10%;
+        opacity: 1;
+    }
+
+    30% {
+        left: 15%;
+        opacity: 1;
+    }
+
+    100% {
+        left: -50%;
+        opacity: 0;
+    }
+}
+
+@-moz-keyframes toLeftAnim2 {
+    0% {
+        left: 10%;
+        opacity: 1;
+    }
+
+    30% {
+        left: 15%;
+        opacity: 1;
+    }
+
+    100% {
+        left: -50%;
+        opacity: 0;
+    }
+}
+
+@-moz-keyframes toLeftAnim3 {
+    0% {
+        left: 10%;
+        opacity: 1;
+    }
+
+    100% {
+        left: -50%;
+        opacity: 0;
+    }
+}
+
+@-moz-keyframes toLeftAnim4 {
+    0% {
+        left: 60%;
+        opacity: 1;
+    }
+
+    70% {
+        left: 30%;
+        opacity: 0;
+    }
+
+    100% {
+        left: -50%;
+        opacity: 0;
+    }
+}
+
+@-o-keyframes toLeftAnim1 {
+    0% {
+        left: 10%;
+        opacity: 1;
+    }
+
+    30% {
+        left: 15%;
+        opacity: 1;
+    }
+
+    100% {
+        left: -50%;
+        opacity: 0;
+    }
+}
+
+@-o-keyframes toLeftAnim2 {
+    0% {
+        left: 10%;
+        opacity: 1;
+    }
+
+    30% {
+        left: 15%;
+        opacity: 1;
+    }
+
+    100% {
+        left: -50%;
+        opacity: 0;
+    }
+}
+
+@-o-keyframes toLeftAnim3 {
+    0% {
+        left: 10%;
+        opacity: 1;
+    }
+
+    100% {
+        left: -50%;
+        opacity: 0;
+    }
+}
+
+@-o-keyframes toLeftAnim4 {
+    0% {
+        left: 60%;
+        opacity: 1;
+    }
+
+    70% {
+        left: 30%;
+        opacity: 0;
+    }
+
+    100% {
+        left: -50%;
+        opacity: 0;
+    }
+}
+

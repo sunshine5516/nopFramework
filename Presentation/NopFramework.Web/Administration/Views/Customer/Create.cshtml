@@ -1,0 +1,29 @@
+﻿@using NopFramework.Admin.Models.Customers
+@using NopFramework.Web.Framework.UI
+@model CustomerModel
+@{
+    ViewBag.Title = "添加新的客户";
+    Html.SetActiveMenuItemSystemName("Customers list");
+}
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div class="content-header clearfix">
+        <h1 class="pull-left">
+            添加新的客户
+            <small><i class="fa fa-arrow-circle-left"></i>@Html.ActionLink("返回客户列表", "List")</small>
+        </h1>
+        <div class="pull-right">
+            <button type="submit" name="save" class="btn bg-blue">
+                <i class="fa fa-floppy-o"></i>
+                保存
+            </button>
+            <button type="submit" name="save-continue" class="btn bg-blue">
+                <i class="fa fa-floppy-o"></i>
+                保存并继续编辑
+            </button>
+        </div>
+    </div>
+    @Html.Partial("_CreateOrUpdate",Model)
+}
+

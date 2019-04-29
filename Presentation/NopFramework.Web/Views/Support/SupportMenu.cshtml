@@ -1,0 +1,31 @@
+﻿<div class="secondary_banner support_banner" >
+    @*<div class="secondary_banner" style="">*@
+    @*<div class="">
+            <img class="image" src="~/Content/Images/custom/contactus_bannser.png" />
+        </div>*@
+ 
+</div>
+<div class="subcolumn_nav_met_11_4" m-id="38" m-type="nocontent">
+    <div class="container">
+        <div class="row">
+            <div class="clearfix">
+                <div class="subcolumn-nav">
+                    <ul class="subcolumn_nav_met_11_4-ul m-b-0 ulstyle">
+                        <li>
+                            @Html.ActionLink("仪器资料下载", "InstructionsList", new { TypeId = 2 }, new { @class = "link" })
+                            @*<a href="@Url.RouteUrl("Product")" class="link">仪器资料下载</a>*@
+                        </li>
+                        <li>
+                            @Html.ActionLink("说明书下载", "InstructionsList", new { TypeId=1 }, new { @class = "link" })
+                            @*<a href="@Url.RouteUrl("Product")" class="link">说明书下载</a>*@
+                        </li>
+                        <li>
+                            @Html.ActionLink("常见问题", "AboutUs", "", new { @class = "link" })
+                            @*<a href="@Url.RouteUrl("Product")" class="link">常见问题</a>*@
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

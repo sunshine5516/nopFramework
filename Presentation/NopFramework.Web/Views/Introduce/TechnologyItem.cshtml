@@ -1,0 +1,17 @@
+﻿@using NopFramework.Web.Models.Introduce
+@model TermModel
+@{
+    ViewBag.Title = "TechnologyItem";
+}
+@Html.Action("SupportMenu", "Support")
+<div class="container">
+    <div class="row">
+        <article class="met-show-body panel panel-body m-b-0" boxmh-mh="">
+            <div class="container">
+                <div class="">
+                    @Html.Raw(Model.FullDescription)
+                </div>
+            </div>
+        </article>
+    </div>
+</div>
